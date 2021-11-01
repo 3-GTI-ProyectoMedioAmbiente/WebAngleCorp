@@ -1,0 +1,130 @@
+
+body{
+    background-image: url(../images/imagen-bus.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;   
+}
+
+
+
+/********Header**************************/
+.header{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+.logo{
+    width: 250px;
+    height: auto;
+    padding: 20px;
+    
+}
+
+
+nav.navbar {
+    padding: 30px;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+nav.navbar ul.navbar-nav li.nav-item {
+    
+   padding: 10px;
+}
+nav.navbar ul.navbar-nav li.nav-item a.nav-link {
+    
+   
+   font-size: 20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
+    
+    color: lightgray;
+   
+}
+
+
+/********LANDING**************************/
+
+.container{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 400px; 
+    color: aliceblue;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    
+    
+    
+    
+}
+.container h1{
+    font-size: 60px;
+    font-weight: 500;
+}
+.container h2{
+    font-size: 30px;
+    font-weight:bold;
+}
+.containerBotones{
+    margin-top: 40px;
+    justify-content: center;
+    display: flex;
+    width: inherit;
+    font-weight: bolder;
+    font-size: 20px;
+     
+}
+.containerBotones button{
+    
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 15px;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    
+    
+}
+.buttonLogInLanding{
+    
+    margin-right: 10px;
+    background-color: transparent;
+    color: aliceblue;
+    
+    
+    
+}
+.buttonMapaLanding{
+    
+    margin-left: 10px;
+    background-color: aliceblue;
+    color:cadetblue; 
+    font-weight: 600;
+}
+
+.buttonLogInLanding:hover{
+    
+    background-color: aliceblue;
+    color: cadetblue;
+    font-weight: 600;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    
+    
+    
+}
+.buttonMapaLanding:hover{
+    
+    background-color: transparent;
+    color: aliceblue;
+    font-weight: 500;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    
+    
+}

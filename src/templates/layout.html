@@ -4,8 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mediciones</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <title>Angle Corp</title>
+
+    <!-- Links estilos-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!-- Css -->
+        <link rel="stylesheet" href="../static/css/cssGeneral.css" type="text/css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
 
     <!-- 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,10 +22,42 @@
 
 </head>
 <body>
+    <header class="header">
+        
+        
+        <a href="index"><img class="logo" src="../static/images/LOGO.png" alt="Imagen del logo"></a>
+        <nav class="navbar navbar-expand-lg navbar-light">
+              
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+    
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                 <ul class="navbar-nav mr-auto">
+                 
+                  <li class="nav-item">
+                    <a class="nav-link" href="index">INICIO </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">INICIAR SESIÓN </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">VER MAPA</a>
+                  </li>
+                  
+                </ul>
+    
+              </div>
+        </nav>
+          
+      </header>
     <div class="container">
-        <h1>Mediciones</h1>
+        
         {% block body %}
         {% endblock %}
+
     </div>
     
     

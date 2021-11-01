@@ -23,7 +23,13 @@ def getAllMeasuresWeb():
     data = dataJson['mediciones']
     return render_template('insert.html', mediciones=data)
 
-    
+
+##/
+## http://{ip_server}/index
+## Ruta principal de la pagina web que mostrara el index
+## @return plantillaWeb: genera el codigo html de la pagina web a partir de las medidicones obtenidas en la BD 
+## getAllMeasuresWeb-> HTML
+##/
 @app.route('/index')
 def getIndex():
     return render_template('index.html')
