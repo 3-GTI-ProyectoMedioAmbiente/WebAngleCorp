@@ -23,6 +23,10 @@ def getAllMeasuresWeb():
     data = dataJson['mediciones']
     return render_template('insert.html', mediciones=data)
 
+    
+@app.route('/index')
+def getIndex():
+    return render_template('index.html')
 ##/
 ## http://{ip_server}/getLastMeasuresWeb
 ## Ruta principal de la pagina web que mostrara las mediciones ultimas mediciones
