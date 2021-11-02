@@ -17,7 +17,7 @@ logicaFake = LogicaFake(ipServer)
 ## @return plantillaWeb: genera el codigo html de la pagina web a partir de las medidicones obtenidas en la BD 
 ## getAllMeasuresWeb-> HTML
 ##/
-@app.route('/')
+@app.route('/mediciones')
 def getAllMeasuresWeb():
     dataJson = logicaFake.obtenerTodasLasMediciones()
     data = dataJson['mediciones']
@@ -30,9 +30,30 @@ def getAllMeasuresWeb():
 ## @return plantillaWeb: genera el codigo html de la pagina web a partir de las medidicones obtenidas en la BD 
 ## getAllMeasuresWeb-> HTML
 ##/
-@app.route('/index')
+@app.route('/')
 def getIndex():
     return render_template('index.html')
+
+##/
+## http://{ip_server}/index
+## Ruta que mostrará el login
+## @return plantillaWeb: genera el codigo html de la pagina web 
+##/
+@app.route('/login')
+def getLogin():
+    return render_template('login.html')
+
+    ##/
+## http://{ip_server}/usuario
+## Ruta que mostrará la pagina de datos del usuario
+## @return plantillaWeb: genera el codigo html de la pagina web 
+##/
+@app.route('/usuario')
+def getLogin():
+    return render_template('usuario.html')
+
+
+
 ##/
 ## http://{ip_server}/getLastMeasuresWeb
 ## Ruta principal de la pagina web que mostrara las mediciones ultimas mediciones

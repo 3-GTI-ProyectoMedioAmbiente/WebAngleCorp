@@ -12,13 +12,15 @@ body{
     
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     
 }
 .logo{
-    width: 250px;
+
+    width:200px;
     height: auto;
-    padding: 20px;
+    padding: 10px;
+    margin-left: 20px;
     
 }
 
@@ -26,6 +28,7 @@ body{
 nav.navbar {
     padding: 30px;
     font-family: 'Montserrat', sans-serif;
+    margin-right: 20px;
     
 }
 
@@ -49,7 +52,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 
 /********LANDING**************************/
 
-.container{
+.containerLanding{
     
     display: flex;
     flex-direction: column;
@@ -63,15 +66,15 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     
     
 }
-.container h1{
+.containerLanding h1{
     font-size: 60px;
     font-weight: 500;
 }
-.container h2{
+.containerLanding h2{
     font-size: 30px;
     font-weight:bold;
 }
-.containerBotones{
+.containerBotonesLanding{
     margin-top: 40px;
     justify-content: center;
     display: flex;
@@ -80,7 +83,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     font-size: 20px;
      
 }
-.containerBotones button{
+.containerBotonesLanding button{
     
     border: 2px solid white;
     border-radius: 30px;
@@ -99,6 +102,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     
     
 }
+
 .buttonMapaLanding{
     
     margin-left: 10px;
@@ -114,6 +118,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     font-weight: 600;
     transition-duration: 0.25s;
     transition-timing-function:linear;
+    cursor: pointer;
     
     
     
@@ -125,6 +130,93 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     font-weight: 500;
     transition-duration: 0.25s;
     transition-timing-function:linear;
+    cursor: pointer;
     
     
+}
+
+/********LOGIN**************************/
+.containerLogin{
+
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 100px 100px 100px 100px;
+  align-self: center;
+
+}
+.imagenGrandeLogin img{
+    width: 250px;
+    margin-left: 20px;
+    
+}
+.container-login{
+   
+    margin-top: 50px;
+    margin-left: 90px;
+    
+}
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login100-form-title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.inputLogin{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.botonLogin{
+    margin-top: 30px;
+    border-radius: 20px;
+    border: 2px cadetblue solid;
+    background-color: cadetblue;
+    color: aliceblue;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    padding: 10px;
+    cursor: pointer;
+}
+.botonLogin:hover{
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    background-color: transparent;
+    color: cadetblue;
+    cursor: pointer;
+    
+}
+.inputTextoLogin{
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+  
+  border: none;
+  display: block;
+  width: 100%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding:20px;
+  margin-left: 10px;
+
 }
