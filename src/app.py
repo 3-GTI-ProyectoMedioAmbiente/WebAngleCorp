@@ -8,7 +8,7 @@ from LogicaFake import LogicaFake
 
 #Configuracion de la BD
 app = Flask(__name__)
-ipServer = 'http://localhost:8080'
+ipServer = 'http://localhost:8080/'
 logicaFake = LogicaFake(ipServer) 
 
 ##/
@@ -25,7 +25,7 @@ def getAllMeasuresWeb():
 
 
 ##/
-## http://{ip_server}/index
+## http://{ip_server}/
 ## Ruta principal de la pagina web que mostrara el index
 ## @return plantillaWeb: genera el codigo html de la pagina web a partir de las medidicones obtenidas en la BD 
 ## getAllMeasuresWeb-> HTML
@@ -35,7 +35,7 @@ def getIndex():
     return render_template('index.html')
 
 ##/
-## http://{ip_server}/index
+## http://{ip_server}/login
 ## Ruta que mostrará el login
 ## @return plantillaWeb: genera el codigo html de la pagina web 
 ##/
@@ -49,7 +49,7 @@ def getLogin():
 ## @return plantillaWeb: genera el codigo html de la pagina web 
 ##/
 @app.route('/usuario')
-def getLogin():
+def getUsuario():
     return render_template('usuario.html')
 
 
