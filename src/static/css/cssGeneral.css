@@ -1,0 +1,386 @@
+
+body{
+    background-image: url(../images/imagen-bus.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;   
+}
+
+
+
+/********Header**************************/
+.header{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+.logo{
+
+    width:200px;
+    height: auto;
+    padding: 10px;
+    margin-left: 20px;
+    
+}
+
+
+nav.navbar {
+    padding: 30px;
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 20px;
+    
+}
+
+nav.navbar ul.navbar-nav li.nav-item {
+    
+   padding: 10px;
+}
+nav.navbar ul.navbar-nav li.nav-item a.nav-link {
+    
+   
+   font-size: 20px;
+    color: aliceblue;
+    font-weight: bold;
+}
+nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
+    
+    color: lightgray;
+   
+}
+
+
+/********LANDING**************************/
+
+.containerLanding{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 400px; 
+    color: aliceblue;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    
+    
+    
+    
+}
+.containerLanding h1{
+    font-size: 60px;
+    font-weight: 500;
+}
+.containerLanding h2{
+    font-size: 30px;
+    font-weight:bold;
+}
+.containerBotonesLanding{
+    margin-top: 40px;
+    justify-content: center;
+    display: flex;
+    width: inherit;
+    font-weight: bolder;
+    font-size: 20px;
+     
+}
+.containerBotonesLanding button{
+    
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 15px;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    
+    
+}
+.buttonLogInLanding{
+    
+    margin-right: 10px;
+    background-color: transparent;
+    color: aliceblue;
+    
+    
+    
+}
+
+.buttonMapaLanding{
+    
+    margin-left: 10px;
+    background-color: aliceblue;
+    color:cadetblue; 
+    font-weight: 600;
+}
+
+.buttonLogInLanding:hover{
+    
+    background-color: aliceblue;
+    color: cadetblue;
+    font-weight: 600;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    cursor: pointer;
+    
+    
+    
+}
+.buttonMapaLanding:hover{
+    
+    background-color: transparent;
+    color: aliceblue;
+    font-weight: 500;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    cursor: pointer;
+    
+    
+}
+
+/********LOGIN**************************/
+.containerLogin{
+
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 100px 100px 100px 100px;
+  align-self: center;
+
+}
+.imagenGrandeLogin img{
+    width: 250px;
+    margin-left: 20px;
+    
+}
+.container-login{
+   
+    margin-top: 50px;
+    margin-left: 90px;
+    
+}
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tituloFormularioLogin{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.inputLogin{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.botonLogin{
+    margin-top: 30px;
+    border-radius: 20px;
+    border: 2px cadetblue solid;
+    background-color: cadetblue;
+    color: aliceblue;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    padding: 10px;
+    cursor: pointer;
+}
+.botonLogin:hover{
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    background-color: transparent;
+    color: cadetblue;
+    cursor: pointer;
+    
+}
+.inputTextoLogin{
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+  
+  border: none;
+  display: block;
+  width: 100%;
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding:20px;
+  margin-left: 10px;
+
+}
+.textoRegistroLogin{
+    margin-top: 10px;
+    color: grey;
+}
+
+/********MEDICIONES**************************/
+.containerMediciones{ 
+
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  
+  justify-content:center;
+  padding: 50px 50px 50px 50px;
+  align-self: center;
+
+}
+.containerTituloMediciones{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+.tituloMediciones{
+    margin-left: 10px;
+    color: cadetblue;
+    font-family: 'Montserrat', sans-serif;
+}
+.botonPaginaMediciones{
+    
+    border-radius: 20px;
+    border: 2px cadetblue solid;
+    background-color: cadetblue;
+    color: aliceblue;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    padding: 10px;
+    cursor: pointer;
+}
+.botonPaginaMediciones:hover{
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    background-color: transparent;
+    color: cadetblue;
+    cursor: pointer;
+}
+.inputCuantasMediciones{
+    font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666666;
+  
+  border: none;
+  
+  
+  background: #e6e6e6;
+  height: 50px;
+  border-radius: 25px;
+  padding:20px;
+  
+  
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+.containerBotonesMediciones{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around   ;
+    align-content: center;
+}
+
+/********USUARIO**************************/
+
+.containerUsuario{
+
+    width: 960px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    
+    justify-content: space-between;
+    padding: 100px 100px 100px 100px;
+    align-self: center;
+  
+  }
+  .containerUsuario{
+    margin-top: 30px;
+    margin-left: 90px;
+    
+  }
+  .containerImagenGrandeYCambios{
+      display: flex;
+      flex-direction: column;
+      
+  }
+  .containerImagenGrandeYCambios div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.containerImagenGrandeYCambios div a{
+    padding: 10px;
+}
+  #textoCerrarSesionUsuario{
+      color: darkred;
+  }
+  .imagenGrandeUsuario{
+    width: 200px;
+    margin-left: 20px;
+  }
+  .formUsuario{
+    display: flex;
+    flex-direction: column;
+  }
+  .tituloFormularioUsuario{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    margin-bottom: 40px;
+    color: cadetblue;
+  }
+  .containerDatosUsuario{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+  .containerLabelsDatosUsuario div{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 5px;
+  }
+  .containerLabelsDatosUsuario div img{
+    width: 20px;
+    margin-right: 10px;
+}
+  .containerLabelsDatosUsuario p{
+    margin: 0px;
+    margin-left: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: darkgray;
+    font-size: 20px;
+}
+.textosDatosUsuario{
+    display: flex;
+    flex-direction: column;
+}
+.textosDatosUsuario p{
+    margin: 0px;
+    padding: 5px;
+    font-size: 20px;
+    margin-left: 50px;
+    color: grey;
+}
+#cerrarSesionA{
+    color: darkred;
+}

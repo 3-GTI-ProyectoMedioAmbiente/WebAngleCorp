@@ -1,38 +1,58 @@
 {% extends 'layout.html'%}
 {% block body %}
 
-<form action="/getLastMeasuresWeb" method="POST" class="form-group">
-    <input type="text" name="cuantos" placeholder="Últimas mediciones...">
-    <button type="submit">
-        Últimas mediciones
-    </button>
-    <table class="table">
-        <thead>
-            <tr>
-                <td>Id:</td>
-                <td>Medicion:</td>
-                <td>Fecha:</td>
-                <td>Hora:</td>
-                <td>Latitud:</td>
-                <td>Longitud</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for medicion in mediciones %}
-            <tr>
-                <td>{{medicion['id']}}</td>
-                <td>{{medicion['medicion']}}</td>
-                <td>{{medicion['fecha']}}</td>
-                <td>{{medicion['hora']}}</td>
-                <td>{{medicion['localizacion_lat']}}</td>
-                <td>{{medicion['localizacion_lon']}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <button type="submit">
-        Ver todas las mediciones
-    </button>
-</form>
+<div class="containerMediciones">
+
+    <div class="containerTituloMediciones">
+
+        <img src="../static/images/speedometer (1).png" alt="Imagen titulo mediciones">
+        <h1 class="tituloMediciones">Mis Mediciones</h1>
+        
+    </div>
+    
+    <form action="/getLastMeasuresWeb" method="POST" class="form-group">
+        
+        <table class="table">
+            <caption>Lista de Mediciones de  la base de datos</caption>
+            <thead>
+                <tr>
+                    <td>Id:</td>
+                    <td>Medicion:</td>
+                    <td>Fecha:</td>
+                    <td>Hora:</td>
+                    <td>Latitud:</td>
+                    <td>Longitud</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medicion in mediciones %}
+                <tr>
+                    <td>{{medicion['id']}}</td>
+                    <td>{{medicion['medicion']}}</td>
+                    <td>{{medicion['fecha']}}</td>
+                    <td>{{medicion['hora']}}</td>
+                    <td>{{medicion['localizacion_lat']}}</td>
+                    <td>{{medicion['localizacion_lon']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="containerBotonesMediciones">
+            <button class="botonPaginaMediciones" type="submit">
+                Ver todas
+            </button>
+            <div>
+                <input class="inputCuantasMediciones" type="text" name="cuantos" placeholder="Nº de mediciones...">
+                <button  class="botonPaginaMediciones" type="submit">
+                    Ver Últimas
+                </button>
+            </div>
+            
+        </div>
+        
+    </form>
+</div>
+
 
 {% endblock %}

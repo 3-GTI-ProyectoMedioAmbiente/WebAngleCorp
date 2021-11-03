@@ -1,0 +1,45 @@
+{% extends 'layout.html'%}
+{% block body %}
+
+<div class="container-login">
+    
+    <div class="containerLogin">
+
+        <div class="imagenGrandeLogin">
+            <img src="../static/images/computadora.png" alt="Imagen Login">
+        </div>
+
+        <form class="formLogin">
+            <span class="tituloFormularioLogin">
+                Iniciar Sesión
+            </span>
+
+            <!--Input de correo-->
+            <div class="inputLogin" data-validate = "Hace falta un email valido: ex@abc.xyz">
+
+                <img src="../static/images/correo-electronico (1).png" alt="Imagen de sobre">
+                <input class="inputTextoLogin" type="text" name="email" placeholder="Email">
+                
+            </div>
+            <!--Input de contraseña-->
+            <div class="inputLogin" data-validate = "Contraseña Requerida">
+
+                <img src="../static/images/lock (1).png" alt="">
+                <input class="inputTextoLogin" type="password" name="pass" placeholder="Password">
+                
+            </div>
+            <!--Boton login-->
+            <div class="containerBotonLogin">
+                <button class="botonLogin">
+                    INICIAR SESIÓN
+                </button>
+            </div>
+            
+            <p class="textoRegistroLogin">¿No estás registrado?<span><a href="">Regístrate</a></span></p>
+
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
