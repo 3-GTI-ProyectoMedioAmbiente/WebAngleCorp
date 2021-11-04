@@ -1,14 +1,80 @@
-{% extends 'layout.html'%}
-{% block body %}
+<!-- 
+    index.html
+    Autor: Sergi Sirvent Sempere
+    Fecha: 10/2021
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Corp</title>
 
-<div class="containerLanding">
-    <h2>Bienvenido a Angle Corp</h2>
-    <h1>Explora el estado de tu ciudad</h1>
-    <div class="containerBotonesLanding">
-        <a href="login"><button class="buttonLogInLanding">INICIAR SESIÓN</button></a>
-        <a href="mediciones"><button class="buttonMapaLanding">VER MEDICIONES</button></a>
+    <!-- Links estilos-->
+        <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
+        <!-- Css -->
+        <link rel="stylesheet" href="Assets/css/cssGeneral.css" type="text/css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+
+    <!-- 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    -->
+
+</head>
+<body>
+    <header class="header">
+        
+        <!-- Logo --------------------------------------------------------------------->
+        <a href="index"><img class="logo" src="Assets/images/LOGO.png" alt="Imagen del logo"></a>
+        <!-- Nav --------------------------------------------------------------------->
+        <nav class="navbar navbar-expand-lg navbar-light">
+              
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+    
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                 <ul class="navbar-nav mr-auto">
+                 
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">INICIO </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="insert.html">MEDICIONES</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="usuario.html">MI PERFIL</a>
+                  </li>
+                  
+                </ul>
+    
+              </div>
+        </nav>
+          
+      </header>
+    <div class="container">
+        
+        <div class="containerLanding">
+            <h2>Bienvenido a Angle Corp</h2>
+            <h1>Explora el estado de tu ciudad</h1>
+            <div class="containerBotonesLanding">
+                <a href="login.html"><button class="buttonLogInLanding">INICIAR SESIÓN</button></a>
+                <a href="insert.html"><button class="buttonMapaLanding">VER MEDICIONES</button></a>
+            </div>
+            
+        </div>
+
     </div>
     
-</div>
-
-{% endblock %}
+    
+</body>
+</html>
