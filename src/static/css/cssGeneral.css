@@ -174,7 +174,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 }
 .tituloFormularioLogin{
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    color: cadetblue;
     font-size: 30px;
     margin-bottom: 30px;
 }
