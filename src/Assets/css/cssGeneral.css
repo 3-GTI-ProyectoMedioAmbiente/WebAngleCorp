@@ -56,7 +56,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     height: 400px; 
     color: aliceblue;
@@ -143,15 +143,10 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
   border-radius: 10px;
   overflow: hidden;
   
-
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 100px 100px 100px 100px;
+  padding: 100px 100px 50px 100px;
   align-self: center;
 
 }
@@ -162,7 +157,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 }
 .container-login{
    
-    margin-top: 50px;
+    
     margin-left: 90px;
     
 }
@@ -174,7 +169,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 }
 .tituloFormularioLogin{
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    color: cadetblue;
     font-size: 30px;
     margin-bottom: 30px;
 }
@@ -307,12 +302,12 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     display: flex;
     
     justify-content: space-between;
-    padding: 100px 100px 100px 100px;
+    padding: 50px 50px 50px 50px;
     align-self: center;
   
   }
   .containerUsuario{
-    margin-top: 30px;
+    
     margin-left: 90px;
     
   }
@@ -330,7 +325,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     padding: 10px;
 }
   #textoCerrarSesionUsuario{
-      color: darkred;
+      color: red;
   }
   .imagenGrandeUsuario{
     width: 200px;

@@ -1,0 +1,115 @@
+<!-- 
+    login.html
+    Autor: Sergi Sirvent Sempere
+    Fecha: 10/2021
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Corp</title>
+
+    <!-- Links estilos-->
+        <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
+        <!-- Css -->
+        <link rel="stylesheet" href="Assets/css/cssGeneral.css" type="text/css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="Assets/images/LOGO.png">
+
+    <!-- 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    -->
+
+</head>
+<body>
+    <header class="header">
+        
+        <!-- Logo --------------------------------------------------------------------->
+        <a href="index.html"><img class="logo" src="Assets/images/LOGO.png" alt="Imagen del logo"></a>
+        <!-- Nav --------------------------------------------------------------------->
+        <nav class="navbar navbar-expand-lg navbar-light">
+              
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+    
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                
+                 <ul class="navbar-nav mr-auto">
+                 
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">INICIO </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="insert.html">MEDICIONES</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="usuario.html">MI PERFIL</a>
+                  </li>
+                  
+                </ul>
+    
+              </div>
+        </nav>
+          
+      </header>
+    <div class="container">
+        
+        <div class="container-login">
+    
+            <div class="containerLogin">
+        
+                <div class="imagenGrandeLogin">
+                    <img src="Assets/images/computadora.png" alt="Imagen Login">
+                </div>
+        
+                <form class="formLogin">
+                    <span class="tituloFormularioLogin">
+                        Iniciar Sesión
+                    </span>
+        
+                    <!--Input de correo-->
+                    <div class="inputLogin" data-validate = "Hace falta un email valido: ex@abc.xyz">
+        
+                        <img src="Assets/images/correo-electronico (1).png" alt="Imagen de sobre">
+                        <input class="inputTextoLogin" type="text" name="email" placeholder="Email">
+                        
+                    </div>
+                    <!--Input de contraseña-->
+                    <div class="inputLogin" data-validate = "Contraseña Requerida">
+        
+                        <img src="Assets/images/lock (1).png" alt="Imagen candado">
+                        <input class="inputTextoLogin" type="password" name="pass" placeholder="Password">
+                        
+                    </div>
+                    <!--Boton login-->
+                    <div class="containerBotonLogin">
+                        <button class="botonLogin">
+                            INICIAR SESIÓN
+                        </button>
+                    </div>
+                    
+                    <p class="textoRegistroLogin">¿No estás registrado?<span><a href="">Regístrate</a></span></p>
+        
+        
+                </form>
+            </div>
+        </div>
+
+    </div>
+    
+    
+</body>
+</html>
+
+
+
