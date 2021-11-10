@@ -1,8 +1,6 @@
 
 body{
-    background-image: url(../images/imagen-bus.jpg);
-    background-size: cover;
-    background-repeat:no-repeat;   
+       
 }
 
 
@@ -51,6 +49,12 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 
 
 /********LANDING**************************/
+.containerInicio{
+    background-image: url(../images/imagen-bus.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height: 1080px;
+}
 
 .containerLanding{
     
@@ -61,6 +65,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     height: 400px; 
     color: aliceblue;
     font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    margin-top: 110px;
     
     
     
@@ -90,6 +95,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     padding: 15px;
     transition-duration: 0.25s;
     transition-timing-function:linear;
+    
     
     
 }
@@ -135,7 +141,42 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     
 }
 
+#btnLandingHaciaAbajo{
+    margin-top: 100px;
+    width: 50px;
+    
+}
+
+#containerSobreNosotros{
+    background-color: aqua;
+    height: 1080px;
+}
+#containerContaminantes{
+    background-color: brown;
+    height: 1080px;
+}
+
+#aIrHaciaAbajo{
+    width: 50px;
+    
+}
+.containerHaciaAbajoLanding{
+    margin-top: 100px;
+    height: 300px;
+}
 /********LOGIN**************************/
+.body-login{
+    background-image: url(../images/imagen-bus.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height: 1080px;
+}
+.containerFormulario{
+    justify-content: center;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
 .containerLogin{
 
   width: 960px;
@@ -221,7 +262,13 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 }
 
 /********MEDICIONES**************************/
-.containerMediciones{ 
+.bodyMediciones{
+    background-image: url(../images/imagen-bus.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height: 1080px;
+}
+.containerMapa{ 
 
   background: #fff;
   border-radius: 10px;
@@ -234,11 +281,35 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
   align-self: center;
 
 }
-.containerTituloMediciones{
+.containerTituloMapa{
     display: flex;
     flex-direction:row;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: space-between;
+    
+}
+.containerTituloMapa div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+.containerTituloMapa a{
+   
+    border: 1px cadetblue solid;
+    padding: 10px;
+    border-radius: 10px;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    box-shadow: 1.5px 1.5px 1.5px 0px;
+    background-color: cadetblue;
+}
+.containerTituloMapa a:hover {
+   
+    background-color: aliceblue;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
     
 }
 .tituloMediciones{
@@ -246,7 +317,11 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     color: cadetblue;
     font-family: 'Montserrat', sans-serif;
 }
-.botonPaginaMediciones{
+.imagenMapa{
+    border-radius: 10px;
+    width: 800px;
+}
+.botonPaginaMapa{
     
     border-radius: 20px;
     border: 2px cadetblue solid;
@@ -257,42 +332,119 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     padding: 10px;
     cursor: pointer;
 }
-.botonPaginaMediciones:hover{
+.botonPaginaMapa:hover{
     transition-duration: 0.25s;
     transition-timing-function:linear;
     background-color: transparent;
     color: cadetblue;
     cursor: pointer;
 }
-.inputCuantasMediciones{
-    font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
-  color: #666666;
-  
-  border: none;
-  
-  
-  background: #e6e6e6;
-  height: 50px;
-  border-radius: 25px;
-  padding:20px;
-  
-  
-}
-.form-group{
+
+.containerMapaHijo{
     display: flex;
+    justify-content: center;
     flex-direction: column;
-}
-.containerBotonesMediciones{
-    display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: space-around   ;
-    align-content: center;
+}
+.containerMapaHijo div{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 30px;
+    align-items: center;
+    
+}
+.containerMapaHijo div p{
+    margin: 0px;
+    color: cadetblue;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+.containerMapaHijo div select{
+    border: 2px solid cadetblue;
+    border-radius: 10px;
+    padding: 8px;
 }
 
+/*pop up leyenda*/
+.overlay { 
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+    
+  display: flex;
+  justify-content: center;
+}
+.overlay:target{
+  visibility: visible;
+  opacity: 1;
+}
+#popupBody{
+    
+    height: 400px;
+    margin-top: 100px;
+    padding: 2%;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #CCC;
+    transition: all 5s ease-in-out;
+    background-color: aliceblue;
+    
+}
+.cabeceraPopUp{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.cabeceraPopUp div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.cabeceraPopUp div img{
+    padding: 10px;
+
+}
+.cabeceraPopUp div h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0px;
+    color: cadetblue;
+
+}
+#cerrar{
+    
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #F00;
+    transition: all 200ms;
+}
+.popupContent{
+    margin-top: 50px;
+}
+.popupContent ul li{
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+}
+.popupContent ul li span{
+    font-weight: 700;
+}
 /********USUARIO**************************/
+.bodyUsuario{
+    background-image: url(../images/imagen-bus.jpg);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height: 1080px;
+}
 
 .containerUsuario{
 
@@ -379,3 +531,26 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 #cerrarSesionA{
     color: darkred;
 }
+
+/****Registro*****************************/
+.containerRegistro{
+
+  width: 960px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 100px 50px 100px;
+  align-self: center;
+
+}
+.formRegistro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

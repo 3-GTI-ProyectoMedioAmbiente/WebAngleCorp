@@ -1,0 +1,221 @@
+<!-- 
+    mapa.html
+    Autor: Sergi Sirvent Sempere
+    Fecha: 10/2021
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Corp</title>
+
+    <!-- Links estilos-->
+        <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
+        <!-- Css -->
+        <link rel="stylesheet" href="Assets/css/cssGeneral.css" type="text/css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="Assets/images/LOGO.png">
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    -->
+
+    <!-- ---------------------------------------------------- -->
+      <!-- incluimos los metodos de la logica fake -->
+      <script src="LogicaFake/obtenerTodasLasMediciones.js"></script>
+      <script src="LogicaFake/obtenerUltimasMediciones.js"></script>
+
+
+      <!-- ---------------------------------------------------- -->
+      <script>
+        // Metodo que va a ser llamado por el boton de todas las mediciones y al cargar la pagina
+        function mostrarTodasMediciones(){
+            // llamo a la función de la lógica (versión fake)
+            obtenerTodasLasMediciones(function (err,res) {
+              
+              var arrayJSON = JSON.parse(res)//almaceno el resultado en un arrayJSON
+              arrayJSON=arrayJSON.mediciones;
+
+                /*
+                añadimos los datos del array json a la tabla de nuestro html
+                 */
+                $("#cuerpo").html("");//borramos
+                for(var i = 0 ; i<arrayJSON.length;i++){//recorremos la array y llenamos las filas de la tabla
+                    var tr = `<tr>
+                                  <td>`+arrayJSON[i].id+`</td>
+                                  <td>`+arrayJSON[i].medicion+`</td>
+                                  <td>`+arrayJSON[i].localizacion_lat+`</td>
+                                  <td>`+arrayJSON[i].localizacion_lon+`</td>
+                                  <td>`+arrayJSON[i].medicion+`</td>
+                              </tr>`;
+                    $("#cuerpo").append(tr)//añadimos la info
+                }
+
+            })
+        }
+    </script>
+    <!-- ---------------------------------------------------- -->
+
+    <script>
+
+        //Metodo que va a ser llamado por el boton de ultimas mediciones
+        function mostrarUltimasMediciones(){
+              //primero comprobamos que el input no esta vacio y no esta en 0
+            if (String.valueOf(document.getElementById("cuantas").value) != " " && document.getElementById("cuantas").value != 0){
+
+                let cuantasQuiere = document.getElementById("cuantas").value;//almacenamos el numero de mediciones
+                                                                          //que quiere el usuario
+                //console.log("Cuantas"+inputValue);
+
+                // llamo a la función de la lógica (versión fake), pasandole el cb y el numero de
+                // mediciones que quiere el usuario
+                obtenerUltimasMediciones(function (err,res) {
+
+                    var arrayJSON = JSON.parse(res)//almaceno el resultado en un arrayJSON
+                    arrayJSON=arrayJSON.mediciones;
+                    $("#cuerpo").html("");//borramos
+                    for(var i = 0 ; i<arrayJSON.length;i++){//recorremos la array y llenamos las filas de la tabla
+                        var tr = `<tr>
+                                  <td>`+arrayJSON[i].id+`</td>
+                                  <td>`+arrayJSON[i].medicion+`</td>
+                                  <td>`+arrayJSON[i].localizacion_lat+`</td>
+                                  <td>`+arrayJSON[i].localizacion_lon+`</td>
+                                  <td>`+arrayJSON[i].medicion+`</td>
+                              </tr>`;
+                        $("#cuerpo").append(tr)//añadimos la info
+                    }
+
+                },cuantasQuiere)
+
+
+            }else {
+                alert("Introduce un valor válido para cuantas")
+            }
+
+
+
+
+        }
+
+
+
+    </script>
+    <!-- ---------------------------------------------------- -->
+
+</head>
+<body class="bodyMediciones">
+    <header class="header">
+        
+        <!-- Logo --------------------------------------------------------------------->
+        <a href="index.html"><img class="logo" src="Assets/images/LOGO.png" alt="Imagen del logo"></a>
+        <!-- Nav --------------------------------------------------------------------->
+        <nav class="navbar navbar-expand-lg navbar-light">
+
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                     <ul class="navbar-nav mr-auto">
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html">INICIO </a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="mapa.html">MAPA</a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html#containerContaminantes">CONTAMINANTES</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html#containerSobreNosotros">¿QUIÉNES SOMOS?</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="usuario.html">MI PERFIL</a>
+                      </li>
+
+                    </ul>
+
+                  </div>
+            </nav>
+          
+      </header>
+    <div class="container">
+        
+        <div class="containerMapa">
+
+            <div class="containerTituloMapa">
+                <div>
+                    <img src="Assets/images/mapa.png" alt="Imagen titulo mapa">
+                    <h1 class="tituloMediciones">Mapa de contaminantes</h1>
+                </div>
+                <div>
+                   
+                   <a href="#popup"><img src="Assets/images/iconoLeyenda.png" alt="Imagen libro de leyenda"></a> 
+                </div>
+                
+            </div>
+            <div class="containerMapaHijo">
+                <img  class="imagenMapa" src="Assets/images/imagenMapaGandia.png" alt="Imagen del mapa de Gandia">
+                <div>
+                    <p>Seleccione el contaminante que desee filtrar: </p>
+                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                      <option selected>Seleccione Contaminante...</option>
+                      <option value="1">CO2</option>
+                      <option value="2">Azufre</option>
+                      <option value="3">Nitrógeno</option>
+                    </select>
+                    
+                </div>
+                
+                
+            </div>
+            
+            
+            
+        </div>
+
+    </div>
+    
+    <div id="popup" class="overlay">
+        
+            <div id="popupBody">
+               <div class="cabeceraPopUp">
+                    <div>
+                       <img src="Assets/images/iconoLeyenda.png" alt="Icono leyenda">
+                        <h2>Leyenda</h2>
+                    </div>
+                    
+                    <a id="cerrar" href="#"><img src="Assets/images/boton-de-cierre%20.png" alt="Imagen cerrar popUp"></a>
+                 
+               </div>
+                
+                
+                <div class="popupContent">
+                    <ul>
+                        <li>Color <span style="color: red">Rojo</span>: Alto valor en concentración del contaminante en el aire.</li>
+                        <li>Color <span style="color: orange">Amarillo</span>: Valor medio en concentración del contaminante en el aire.</li>
+                        <li>Color <span style="color: green">Verde</span>: Bajo valor en concentración del contaminante en el aire.</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    
+    
+</body>
+</html>

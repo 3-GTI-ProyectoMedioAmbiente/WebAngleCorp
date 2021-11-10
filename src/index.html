@@ -27,54 +27,94 @@
     <!-- 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    
+            
 
+    
 </head>
 <body>
-    <header class="header">
-        
-        <!-- Logo --------------------------------------------------------------------->
-        <a href="index.html"><img class="logo" src="Assets/images/LOGO.png" alt="Imagen del logo"></a>
-        <!-- Nav --------------------------------------------------------------------->
-        <nav class="navbar navbar-expand-lg navbar-light">
-              
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-    
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                
-                 <ul class="navbar-nav mr-auto">
-                 
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">INICIO </a>
-                  </li>
-                  
-                  <li class="nav-item">
-                    <a class="nav-link" href="insert.html">MEDICIONES</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="usuario.html">MI PERFIL</a>
-                  </li>
-                  
-                </ul>
-    
-              </div>
-        </nav>
-          
-      </header>
-    <div class="container">
-        
-        <div class="containerLanding">
-            <h2>Bienvenido a Angle Corp</h2>
-            <h1>Explora el estado de tu ciudad</h1>
-            <div class="containerBotonesLanding">
-                <a href="login.html"><button class="buttonLogInLanding">INICIAR SESIÓN</button></a>
-                <a href="insert.html"><button class="buttonMapaLanding">VER MEDICIONES</button></a>
-            </div>
-            
-        </div>
+   <div class="containerInicio">
+           <header class="header">
 
-    </div>
+            <!-- Logo --------------------------------------------------------------------->
+            <a href="index.html"><img class="logo" src="Assets/images/LOGO.png" alt="Imagen del logo"></a>
+            <!-- Nav --------------------------------------------------------------------->
+            <nav class="navbar navbar-expand-lg navbar-light">
+
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                     <ul class="navbar-nav mr-auto">
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html">INICIO </a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="mapa.html">MAPA</a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="#containerContaminantes">CONTAMINANTES</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#containerSobreNosotros">¿QUIÉNES SOMOS?</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="usuario.html">MI PERFIL</a>
+                      </li>
+
+                    </ul>
+
+                  </div>
+            </nav>
+
+          </header>
+        
+
+        <div class="containerLanding">
+               
+                <h2>Bienvenido a Angle Corp</h2>
+                <h1>Explora el estado de tu ciudad</h1>
+                <div class="containerBotonesLanding">
+                    <a href="#quieroMiSensor"><button class="buttonLogInLanding">CONTÁCTANOS</button></a>
+                    <a href="mapa.html"><button class="buttonMapaLanding">EXPLORA</button></a>
+                </div>
+                
+                <div class="containerHaciaAbajoLanding">
+                    <marquee onload="this.start()" onmouseover="this.stop()" scrollamount="2" onmouseout="this.start()" align="center" height="70px" behavior="alternate" direction="down" loop="infinite"><a class="aHaciaAbajo" href="#containerContaminantes" type="button"><img id="aIrHaciaAbajo" src="Assets/images/flecha-hacia-abajo.png" alt="Imagen flecha hacia abajo"/></a></marquee>
+                    
+                </div>
+                
+                            
+                        
+                
+                
+           
+
+        </div>
+            
+
+    
+   </div>
+   <div id="containerContaminantes" name="containerContaminantes">
+       <h1>CONTAMINANTES</h1>
+   </div>
+   <div id="containerSobreNosotros" name="containerSobreNosotros">
+       <h1>SOBRE NOSOTROS</h1>
+   </div>
+   <div id="quieroMiSensor" name = "quieroMiSensor" style="background-color: orange;height: 1000px">
+       <h1>COMO OBTENER MI SENSOR</h1>
+   </div>
+   
+   <div class="footer">
+       Esto es el footer
+   </div>
     
     
 </body>

@@ -36,7 +36,7 @@ function obtenerTodasLasMediciones(cb){
 	console.log("hola mundo")
 	//realizar peticion REST obtener todas las mediciones
 
-    xmlhttp.open("GET", "http://localhost:5000/obtenerTodasLasMediciones", true)
+    xmlhttp.open("GET", "http://localhost:8080/obtenerTodasLasMediciones", true)
 	xmlhttp.setRequestHeader('Content-Type', 'application/json');
 	xmlhttp.setRequestHeader('Access-Control-Allow-Credentials', 'true');
 	
