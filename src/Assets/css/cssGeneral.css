@@ -180,7 +180,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 .containerLogin{
 
   width: 960px;
-  background: #fff;
+  background-color: aliceblue;
   border-radius: 10px;
   overflow: hidden;
   
@@ -230,6 +230,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     transition-timing-function:linear;
     padding: 10px;
     cursor: pointer;
+    width: 300px;
 }
 .botonLogin:hover{
     transition-duration: 0.25s;
@@ -270,7 +271,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 }
 .containerMapa{ 
 
-  background: #fff;
+  background-color: aliceblue;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -449,7 +450,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 .containerUsuario{
 
     width: 960px;
-    background: #fff;
+    background: aliceblue;
     border-radius: 10px;
     display: flex;
     
@@ -514,7 +515,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     margin-left: 5px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: darkgray;
+    color: cadetblue;
     font-size: 20px;
 }
 .textosDatosUsuario{
@@ -536,21 +537,34 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 .containerRegistro{
 
   width: 960px;
-  background: #fff;
+  background: aliceblue;
   border-radius: 10px;
   overflow: hidden;
   
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 100px 100px 50px 100px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 50px 50px 50px 50px;
   align-self: center;
 
+}
+
+.containerImagenGrandeRegistro{
+    
+}
+.containerRegistroInputs{
+    justify-content: center;
+    text-align: center;
 }
 .formRegistro {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: aliceblue;
+}
+.formRegistro div img {
+    width: 24px;
 }
 
