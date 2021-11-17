@@ -148,13 +148,14 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 }
 
 #containerSobreNosotros{
-    background-color: aqua;
-    height: 1080px;
+    background-color: cadetblue;
+    padding: 50px;
 }
-#containerContaminantes{
-    background-color: brown;
-    height: 1080px;
+#quieroMiSensor{
+    background-color: sandybrown;
+    padding: 50px;
 }
+
 
 #aIrHaciaAbajo{
     width: 50px;
@@ -163,6 +164,172 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 .containerHaciaAbajoLanding{
     margin-top: 100px;
     height: 300px;
+}
+
+/**Contaminantes****/
+#containerContaminantes{
+    background-color: aliceblue;
+    /*height: 1080px;*/
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.containerTituloInformacion{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+
+
+.infoTextContainer{
+    font-family: 'Montserrat', sans-serif;
+}
+.infoTextContainer span{
+    color:  cadetblue;
+    font-weight: 700;
+}
+
+.infoTextContainer p{
+    margin-bottom: 40px;
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+}
+
+.textContaminacionPromedio{
+    font-style: italic;
+    color: gray;
+}
+
+.contaminantesimg{
+
+    width:150px;
+    padding: 10px;
+    margin-left: 30px;
+    
+}
+.col h3{
+    font-family: 'Montserrat', sans-serif;
+    color: cadetblue;
+}
+
+.col li{
+    padding: 5px;
+    
+}
+.col ol{
+    list-style-image: url(../images/puntoLista.png)
+}
+.infoImag{
+
+    width:64px;
+    /*height: auto;
+    padding: 10px;
+    margin-left: 20px;*/
+    
+    
+}
+/*****Sobre Nosotros************/
+
+
+.containerTituloSobreNosotros{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.containerTituloSobreNosotros h1{
+    
+    color:  aliceblue;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 20px;
+
+}
+
+.containerinfoNosotros{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.containerFotoNosotros{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    
+    background-color: cadetblue;
+    flex: 1;
+}
+.containerTextoNosotros{
+    padding: 50px;
+    background-color: aliceblue;
+    flex: 1;
+    border-radius: 20px;
+}
+.containerFotoNosotros img{
+    width: 300px;
+}
+/*******ComoObtenerMiSensor***********/
+
+.containerTituloObtenerSensor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.containerTituloObtenerSensor h1{
+    
+    color:  aliceblue;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 20px;
+
+}
+
+.containerinfoSensor{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.containerFotoSensor{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    
+    /*background-color: cadetblue;*/
+    flex: 1;
+}
+.containerTextoSensor{
+    padding: 50px;
+    background-color: aliceblue;
+    flex: 1;
+    border-radius: 20px;
+}
+.containerTextoSensor a{
+    color: black;
+}
+.containerFotoSensor img{
+    width: 300px;
+    display: block;
+    margin: auto;
+}
+
+.containerTextoSensor img{
+    display: block;
+    margin: auto;
+    width: 128px;
 }
 /********LOGIN**************************/
 .body-login{
