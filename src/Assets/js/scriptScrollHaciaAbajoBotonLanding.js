@@ -2,9 +2,9 @@
 
         $(document).ready(function() {
 
-            $(".boton").click(function () {
+            $(".aHaciaAbajo").click(function () {
                 $('html,body').animate({
-                    scrollTop: $("#destino").offset().top
+                    scrollTop: $("#containerContaminantes").offset().top
                 }, 500);
             });
 

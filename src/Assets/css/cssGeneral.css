@@ -331,6 +331,21 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     margin: auto;
     width: 128px;
 }
+
+.botonIrHaciaArribaLanding{
+    
+    display:none;
+	padding:20px;
+	background-color: cadetblue;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+    border-radius: 20px;
+    border: 1px aliceblue solid;
+}
 /********LOGIN**************************/
 .body-login{
     background-image: url(../images/imagen-bus.jpg);
