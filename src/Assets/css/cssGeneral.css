@@ -629,8 +629,15 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
   .containerUsuario{
     
     margin-left: 90px;
+      display: flex;
+      flex-direction: column;
     
   }
+.containerArribaUsuario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
   .containerImagenGrandeYCambios{
       display: flex;
       flex-direction: column;
@@ -699,7 +706,41 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 #cerrarSesionA{
     color: darkred;
 }
-
+.btnObtenerNodoUsuario{
+    border-radius: 20px;
+    border: 2px cadetblue solid;
+    background-color: cadetblue;
+    color: aliceblue;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    padding: 10px;
+    cursor: pointer;
+   
+    width: 300px;
+}
+.btnObtenerNodoUsuario:hover{
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    background-color: transparent;
+    color: cadetblue;
+    cursor: pointer;
+}
+.containerUsuarioInferior{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin-top: 100px;
+}
+.containerUsuarioInferior div{
+    display: flex;
+    flex-direction: column;
+}
+.containerUsuarioInferior div a{
+    padding: 5px;
+}
 /****Registro*****************************/
 .containerRegistro{
 
