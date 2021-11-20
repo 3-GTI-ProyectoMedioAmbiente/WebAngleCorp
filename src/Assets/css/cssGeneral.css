@@ -166,7 +166,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     height: 300px;
 }
 
-/**Contaminantes****/
+/**Contaminantes************************************/
 #containerContaminantes{
     background-color: aliceblue;
     /*height: 1080px;*/
@@ -222,7 +222,9 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     font-family: 'Montserrat', sans-serif;
     color: cadetblue;
 }
-
+.col li spam{
+    font-weight: bold;
+}
 .col li{
     padding: 5px;
     
