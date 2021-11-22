@@ -7,7 +7,7 @@ $(document).ready(function(){
 	});
 
 	$(window).scroll(function(){
-		if( $(this).scrollTop() > 0 ){
+		if( $(this).scrollTop() > 500 ){
 			$('.botonIrHaciaArribaLanding').slideDown(300);
 		}else {
 			$('.botonIrHaciaArribaLanding').slideUp(300);

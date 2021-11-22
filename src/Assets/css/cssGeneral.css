@@ -355,7 +355,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     background-image: url(../images/imagen-bus.jpg);
     background-size: cover;
     background-repeat:no-repeat;
-    height: 1080px;
+    height: 20px;
 }
 .containerFormulario{
     justify-content: center;
@@ -630,7 +630,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     background-image: url(../images/imagen-bus.jpg);
     background-size: cover;
     background-repeat:no-repeat;
-    height: 1080px;
+    height: 800px;
 }
 
 .containerUsuario{
