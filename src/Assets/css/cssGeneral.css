@@ -149,11 +149,11 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 
 #containerSobreNosotros{
     background-color: cadetblue;
-    padding: 50px;
+    padding: 100px;
 }
 #quieroMiSensor{
     background-color: sandybrown;
-    padding: 50px;
+    padding: 100px;
 }
 
 
@@ -345,7 +345,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 	color:#fff;
 	cursor:pointer;
 	position: fixed;
-	bottom:20px;
+	bottom:140px;
 	right:20px;
     border-radius: 20px;
     border: 1px aliceblue solid;
@@ -795,3 +795,43 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     width: 24px;
 }
 
+/****Footer***/
+.footer{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.footer img{
+    width: 160px;
+    
+}
+#logoUpvFooter{
+    width: 300px;
+    height: 120px;
+}
+.footer p {
+    
+    color: grey;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.textosFooter{
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+    align-items: center;
+    
+}
+.textosFooter{
+    margin: 0px;
+}
+.textosFooter p{
+    margin: 0px;
+}
+.textosFooter p a{
+    text-decoration: none;
+    color: grey;
+}

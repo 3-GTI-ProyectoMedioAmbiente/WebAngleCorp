@@ -9,7 +9,7 @@ $(document).ready(function(){
 	$(window).scroll(function(){
 		if( $(this).scrollTop() > 0 ){
 			$('.botonIrHaciaArribaLanding').slideDown(300);
-		} else {
+		}else {
 			$('.botonIrHaciaArribaLanding').slideUp(300);
 		}
 	});
