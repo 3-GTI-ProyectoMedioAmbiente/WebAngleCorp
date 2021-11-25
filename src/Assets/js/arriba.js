@@ -1,3 +1,16 @@
+/**
+ * Author: Sergi Sirvent Sempere
+ * Fecha: 18/11/2021
+ * arriba.js
+ * 
+ * Este script sirve para que al pulsar el boton de la landing te devuelve arriba de la pagina.
+ * También hace que si subes arriba del todo el botón se esconde.
+ * 
+ * 
+ */
+
+
+
 $(document).ready(function(){
 
 	$('.botonIrHaciaArribaLanding').click(function(){

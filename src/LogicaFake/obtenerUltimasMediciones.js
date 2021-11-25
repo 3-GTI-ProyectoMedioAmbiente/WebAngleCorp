@@ -7,11 +7,6 @@
  * Metodo de la lógica de negocio que se encarga de devolver de
  * la base de datos las mediciones que pida el usuario
  *
- */
-//--------------------------------------------
-/**
- * Método de la logicaFake que recibe un callback para comunicarse con el método
- * de la lógica verdadera con su mismo nombre
  *
  * @param cb {Callback} - Callback para comunicarse con la logica de negocio
  * @param cuantas {Z} - Cantidad de mediciones que pide el usuario

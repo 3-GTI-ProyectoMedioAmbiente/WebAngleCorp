@@ -4,11 +4,6 @@
  * @author Sergi Sirvent Sempere
  * Fecha: 2021/10
  *
- * Metodo de la lógica fake que se
- *
- */
-//--------------------------------------------
-/**
  * Método de la logicaFake que recibe un callback para comunicarse con el método
  * de la lógica verdadera con su mismo nombre
  *
