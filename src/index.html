@@ -2,6 +2,8 @@
     index.html
     Autor: Sergi Sirvent Sempere
     Fecha: 10/2021
+
+    Este archivo se encarga de contener el contenido de la página principal de la página web
 -->
 <!DOCTYPE html>
 <html lang="es">
@@ -29,6 +31,9 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="Assets/js/arriba.js"></script>
+    <script src="Assets/js/scriptScrollHaciaAbajoBotonLanding.js"></script>
     
     
             
@@ -36,6 +41,7 @@
     
 </head>
 <body>
+   <span class="botonIrHaciaArribaLanding"><img src="Assets/images/flecha-hacia-arriba.png" alt="Flecha hacia arriba" style="color: aliceblue;margin-bottom: 5px;"></span>
    <div class="containerInicio">
            <header class="header">
 
@@ -69,7 +75,7 @@
                       <li class="nav-item">
                         <a class="nav-link" href="usuario.html">MI PERFIL</a>
                       </li>
-
+                      
                     </ul>
 
                   </div>
@@ -83,7 +89,7 @@
                 <h2>Bienvenido a Angle Corp</h2>
                 <h1>Explora el estado de tu ciudad</h1>
                 <div class="containerBotonesLanding">
-                    <a href="#quieroMiSensor"><button class="buttonLogInLanding">CONTÁCTANOS</button></a>
+                    <a href="#quieroMiSensor"><button class="buttonLogInLanding">ÚNETE A NOSOTROS</button></a>
                     <a href="mapa.html"><button class="buttonMapaLanding">EXPLORA</button></a>
                 </div>
                 
@@ -116,84 +122,75 @@
                 </div>
                 <div class="infoTextContainer">
                   
-                    <p >El <span>dióxido de nitrógeno</span>  es un contaminante común que se encuentra en el aire que respiramos.
-Este contaminante puede provenir de los <span>coches</span> que conducimos, 
-en los <span>incendios forestales</span> o <span>erupciones volcánicas</span>, aunque también de <span>forma natural</span> por la descomposición de nitratos orgánicos.
-por lo que es común tanto en el interior como en el exterior.
-El dióxido de nitrógeno puede tener varios efectos tanto en la salud humana como en el medio ambiente, dependiendo de los niveles de concentración o exposición.</p>
+                    <p >En esta apartado les informaremos de todos los gases contaminantes que encontramos en el dia a dia de nuestras vidas. Les explicaremos las causas de esos gases, tal como los efectos, valores límites y los consejos para evitar sus efectos. Los gases son: <span>Monóxido de azufre (SO)</span>, <span>Dióxido de nitrógeno (NO2)</span>, <span>Dióxido de carbono (CO2)</span> o <span>Ozono (O3)</span></p>
               
               
               
-              <div class="row">
-         <div class="col">
-                            <img class="contaminantesimg" src="Assets/images/promedio.png" alt="Imagen titulo Información"> 
-                            <h3 >Promedio 24h</h3>
-                            
-                            <ol style="list-style-type:inherit">
-                               
-                                <li>Muy buena -> 40 µg/m3</li>
-                                <li>Buena -> 75 µg/m3</li>
-                                <li>Aceptable -> 200 µg/m3</li>
-                                <li>Inadecuada -> 500 µg/m3</li>
-                                <li>Mala -> 1130 µg/m3</li>
-                                <li>Muy mala -> 2260 µg/m3</li> 
-                               
-                
-                            </ol>
-                            <p>Aqui se muestra la aceptación del promedio del gas NO2 durante las ultimas 24h</p>
-                
-          </div>
-          <div class="col">
-                               <img class="contaminantesimg" src="Assets/images/f%C3%A1brica.png" alt="Imagen titulo Información"> 
-                            <h3 >Origen NO2</h3>
-                            <ol style="list-style-type:inherit">
-                               
-                                   <li> La quema de combustibles fósiles como el carbón, el petróleo, el gas o el diesel a altas temperaturas</li>
-                <li>Las emisiones de los coches, camiones y autobuses</li>
-                <li>Plantas de energía, equipos diesel y motores móviles</li>
-                <li>Calderas industriales</li>
-                <li>Calentadores de queroseno o gas, y estufas de gas</li>
-                <li>El humo del tabaco</li>
-                               
-                                
-                            </ol>
-                            
-         
-          </div>
+        <div class="row">
+             <div class="col">
+                                <img class="contaminantesimg" src="Assets/images/oil-drill.png" alt="Imagen titulo Información"> 
+                                <h3><center>Monóxido de azufre (SO)</center></h3>
 
-          <div class="w-200"></div>
-          <div class="col">
-                            <img class="contaminantesimg" src="Assets/images/contaminacion%20(1).png" alt="Imagen titulo Información">
-                            <h3>Medio ambiente</h3>
-                            <ol style="list-style-type:inherit">
-                                <li>Lluvia ácida: La lluvia ácida hace daño a ecosistemas sensibles como lagos y bosques.</li>
-                <li>Visibilidad y neblina.</li>
-                <li>Contaminación por nutrientes: La contaminación por nutrientes es causada por el exceso de nitrógeno y fósforo en el aire y el agua.
-                </li>
-                            </ol>
-                            
-          </div>
-          <div class="col">
-                          <img class="contaminantesimg" src="Assets/images/livianos.png" alt="Imagen titulo Información"> 
-                           <h3>Efectos salud</h3>
                                 <ol style="list-style-type:inherit">
-                                    <li>Inflamación de las vías respiratorias</li>
-                <li>Irritación de los ojos, la nariz, la garganta y las vías respiratorias</li>
-                <li>Tos o sibilancias</li>
-                <li>Reducción de la función pulmonar</li>
-                <li>Dificultad para respirar</li>
-                <li>Agravamiento de las enfermedades respiratorias como el asma</li>
-                <li>Los altos niveles de dióxido de nitrógeno pueden poner en peligro la vida</li>
-                                </ol>
-                              
 
+                                    <li><spam>Causa: </spam>la combustión de productos petrolíferos y la quema de carbón en centrales eléctricas y calefacciones centrales.</li>
+                                    <li><spam>Efecto: </spam>dificultad para respirar, inflamación de las vías respiratorias, y irritación ocular.</li>
+                                    <li><spam>Valores límite: </spam>300 µg/m3 es un valor que implica potencial riesgo para la salud humana, para los árboles, un valor de 200 µg/m3 ya es muy grave.</li>
+                                    <li><spam>Consejo: </spam>instalar sistemas adecuados de depuración en procesos industriales productores de este contaminante.</li>
+                                     
+
+
+                                </ol>
+                                
+              </div>
+              <div class="col">
+                                   <img class="contaminantesimg" src="Assets/images/trafico.png" alt="Imagen titulo Información"> 
+                                <h3 ><center>Dióxido de nitrógeno (NO2)</center></h3>
+                                <ol style="list-style-type:inherit">
+
+                                       <li><spam>Causa: </spam>el tráfico rodado así como las emisiones de determinadas industrias y de calefacciones de carbón.</li>
+                                    <li><spam>Efecto: </spam>pueden irritar los pulmones y disminuir la función pulmonar, así como disminuir la resistencia a infecciones respiratorias.</li>
+                                    <li><spam>Valores límite: </spam>debe tener un valor de 40 µg/m3 en al madia anual,
+                                    y otro valor de 200 µg/m3 en la media horaria que no podra superarse en más de 18 ocasiones por año civil.</li>
+                                    <li><spam>Consejo: </spam>se recomienda evitar desplazarse en vehículo privado y moverse a pie, en bicicleta o transporte público para contribuir a la mejora de la calidad del aire.</li>
+
+
+                                </ol>
+
+
+              </div>
+
+          <div class="row">
+              <div class="col">
+                            <img class="contaminantesimg" src="Assets/images/contaminacion%20(1).png" alt="Imagen titulo Información">
+                            <h3><center>Dióxido de carbono (CO2)</center></h3>
+                            <ol style="list-style-type:inherit">
+                                <li><spam>Causa: </spam>combustión de materiales fósiles (carbón, derivados del petróleo, biomasa, etc) y la respiración aeróbica de la especie animal. En mucha menor medida, fenómenos naturales como los volcanes.</li>
+                                    <li><spam>Efecto: </spam>dolores de cabeza, falta de concentración, somnolencia, mareos y problemas respiratorios.</li>
+                                    <li><spam>Valores límite: </spam>en concentraciones altas, cercanas a la 30.000 ppm, puede causar dolores de cabeza, en entornos laborales, como oficinas, se comienzan a tener quejas de olores a partir de las 800-1000 ppm.</li>
+                                    <li><spam>Consejo: </spam>conducir 50 kilómetros menos cada semana reduce en 450 kilogramos las emisiones de CO2</li>
+                            </ol>
+                            
+              </div>
+              <div class="col">
+                              <img class="contaminantesimg" src="Assets/images/capa-de-ozono.png" alt="Imagen titulo Información"> 
+                               <h3><center>Ozono (O3)</center></h3>
+                                    <ol style="list-style-type:inherit">
+                                        <li><spam>Causa: </spam>se forma en la atmósfera cuando los gases procedentes de los tubos de escape, chimeneas, extracción de petróleo, gas y de otras fuentes reaccionan en presencia de la luz solar.</li>
+                                    <li><spam>Efecto: </spam>problemas respiratorios y exacerbación del asma, pudiendo causar ligeras irritaciones en las mucosas oculares y del sistema respiratorio, provocando tos y sequedad de garganta.</li>
+                                    <li><spam>Valores límite: </spam>cuando la concentración de ozono en el aire que se respira es superior a los 240 µg/m3 y ésta se mantiene durante más de ocho horas, existe un claro riesgo para la salud.</li>
+                                    <li><spam>Consejo: </spam>reducir el tiempo de exposición en exteriores, sobre todo de los grupos sensibles como niños, adultos mayores, mujeres embarazadas y personas con problemas respiratorios y cardiovasculares.</li>
+                                    </ol>
+
+
+              </div>
           </div>
+          
           
           
         </div>  
                
-               <p class="textContaminacionPromedio">El promedio 24h se debe al dictado en el Real Decreto 102/2011 el Dióxido de nitrógeno (NO2) debe tener un valor de 40 µg/m3 en al madia anual,
-y otro valor de 200 µg/m3 en la media horaria que no podra superarse en más de 18 ocasiones por año civil.</p>
+               
                
                 </div>
               
@@ -206,7 +203,7 @@ y otro valor de 200 µg/m3 en la media horaria que no podra superarse en más de
                 
             
             
-            <!-- Example row of columns -->
+          
         
 
     </div>        
@@ -276,7 +273,24 @@ y otro valor de 200 µg/m3 en la media horaria que no podra superarse en más de
     </div>
    
    <div class="footer">
-       Esto es el footer
+     
+      <a href="http://www.upv.es/es"><img  id="logoUpvFooter" src="Assets/images/logoUPvBlanco.png" alt="logoUPVBlanco"></a>
+      <div class="textosFooter">
+          <p style="margin-left: : 2px">&copy; ANGLE CORP</p>
+          <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
+          <p>EPSG</p>
+          <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
+          <p><a href="mailto:anglecorp@epsg.upv.es">anglecorp@epsg.upv.es</a></p>
+          <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
+          <p>2021</p>
+          
+          
+      </div>
+      <a href="index.html"><img src="Assets/images/LOGO.png" alt="Logo de Angle Corp"></a>
+      
+      
+      
+      
    </div>
     
     

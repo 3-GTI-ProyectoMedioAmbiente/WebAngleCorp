@@ -1,9 +1,12 @@
-
-body{
-       
-}
-
-
+/**
+ * Author: Sergi Sirvent Sempere
+ * Fecha: 10/2021
+ * cssGeneral.css
+ * 
+ * Este script es el css general que da formato a todos los html del proyecto
+ * 
+ * 
+ */
 
 /********Header**************************/
 .header{
@@ -149,11 +152,11 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 
 #containerSobreNosotros{
     background-color: cadetblue;
-    padding: 50px;
+    padding: 100px;
 }
 #quieroMiSensor{
     background-color: sandybrown;
-    padding: 50px;
+    padding: 100px;
 }
 
 
@@ -166,7 +169,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     height: 300px;
 }
 
-/**Contaminantes****/
+/**Contaminantes************************************/
 #containerContaminantes{
     background-color: aliceblue;
     /*height: 1080px;*/
@@ -212,17 +215,21 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 }
 
 .contaminantesimg{
-
+    margin-left: auto;
+    margin-right: auto;
     width:150px;
     padding: 10px;
-    margin-left: 30px;
+    margin-top: 30px;
+    /*margin-left: 30px;*/
     
 }
 .col h3{
     font-family: 'Montserrat', sans-serif;
     color: cadetblue;
 }
-
+.col li spam{
+    font-weight: bold;
+}
 .col li{
     padding: 5px;
     
@@ -331,12 +338,27 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     margin: auto;
     width: 128px;
 }
+
+.botonIrHaciaArribaLanding{
+    
+    display:none;
+	padding:20px;
+	background-color: cadetblue;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:140px;
+	right:20px;
+    border-radius: 20px;
+    border: 1px aliceblue solid;
+}
 /********LOGIN**************************/
 .body-login{
     background-image: url(../images/imagen-bus.jpg);
     background-size: cover;
     background-repeat:no-repeat;
-    height: 1080px;
+    height: 20px;
 }
 .containerFormulario{
     justify-content: center;
@@ -611,7 +633,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     background-image: url(../images/imagen-bus.jpg);
     background-size: cover;
     background-repeat:no-repeat;
-    height: 1080px;
+    height: 800px;
 }
 
 .containerUsuario{
@@ -629,8 +651,15 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
   .containerUsuario{
     
     margin-left: 90px;
+      display: flex;
+      flex-direction: column;
     
   }
+.containerArribaUsuario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
   .containerImagenGrandeYCambios{
       display: flex;
       flex-direction: column;
@@ -699,7 +728,41 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 #cerrarSesionA{
     color: darkred;
 }
-
+.btnObtenerNodoUsuario{
+    border-radius: 20px;
+    border: 2px cadetblue solid;
+    background-color: cadetblue;
+    color: aliceblue;
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    padding: 10px;
+    cursor: pointer;
+   
+    width: 300px;
+}
+.btnObtenerNodoUsuario:hover{
+    transition-duration: 0.25s;
+    transition-timing-function:linear;
+    background-color: transparent;
+    color: cadetblue;
+    cursor: pointer;
+}
+.containerUsuarioInferior{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin-top: 100px;
+}
+.containerUsuarioInferior div{
+    display: flex;
+    flex-direction: column;
+}
+.containerUsuarioInferior div a{
+    padding: 5px;
+}
 /****Registro*****************************/
 .containerRegistro{
 
@@ -735,3 +798,43 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     width: 24px;
 }
 
+/****Footer***/
+.footer{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.footer img{
+    width: 160px;
+    
+}
+#logoUpvFooter{
+    width: 300px;
+    height: 120px;
+}
+.footer p {
+    
+    color: grey;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+.textosFooter{
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+    align-items: center;
+    
+}
+.textosFooter{
+    margin: 0px;
+}
+.textosFooter p{
+    margin: 0px;
+}
+.textosFooter p a{
+    text-decoration: none;
+    color: grey;
+}
