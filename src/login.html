@@ -4,6 +4,7 @@
     Fecha: 10/2021
     Este archivo se encarga de contener el contenido de la página de login de usuario
 -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,6 +29,43 @@
     <!-- 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="LogicaFake/loginUsuario.js"></script>
+    <script src="LogicaFake/settearUsuarioActivo.js"></script>
+    <script>
+        function onClickBotonLogin(){
+            if ( document.getElementById('inputLoginCorreo').value === "" || document.getElementById('inputLoginContrasenya').value === ""){
+                alert("Rellena los datos de mail y contraseña para iniciar sesión.")
+            }else{
+                loginUsuario(function (err,res) {
+
+                    var usuarioJSON = JSON.parse(res)
+
+                    if (res == -1){
+                        alert("Usuario no registrado")
+                    }else{
+
+                        //Almaceno los datos del usuario en la sesión
+                        settearUsuarioActivo(usuarioJSON)
+                        //Redirecciono a la pagina de usuario
+                        window.location.href = "usuario.html";
+
+                        //console.log(sessionStorage.getItem("usuarioActivoMail").length)
+                        console.log(document.getElementById('inputLoginCorreo').value)
+
+                    }
+
+
+
+
+                },document.getElementById('inputLoginCorreo').value,document.getElementById('inputLoginContrasenya').value)
+            }
+
+        }
+    </script>
+    <script src="LogicaFake/comprobarAcceso.js"></script>
 
 </head>
 <body class="body-login">
@@ -60,9 +98,9 @@
                       <li class="nav-item">
                         <a class="nav-link" href="index.html#containerSobreNosotros">¿QUIÉNES SOMOS?</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="usuario.html">MI PERFIL</a>
-                      </li>
+                         <li class="nav-item">
+                             <a class="nav-link" style="cursor: pointer" onclick="comprobarAcceso()" >MI PERFIL</a>
+                         </li>
 
                     </ul>
 
@@ -87,30 +125,32 @@
         
                     <!--Input de correo-->
                     <div class="inputLogin" data-validate = "Hace falta un email valido: ex@abc.xyz">
-        
+
+
                         <img src="Assets/images/correo-electronico%20(2).png" alt="Imagen de sobre">
-                        <input class="inputTextoLogin" type="text" name="email" placeholder="Email">
+                        <input class="inputTextoLogin" id="inputLoginCorreo" type="text" name="email" placeholder="Email">
                         
                     </div>
                     <!--Input de contraseña-->
                     <div class="inputLogin" data-validate = "Contraseña Requerida">
         
                         <img src="Assets/images/candado.png" alt="Imagen candado">
-                        <input class="inputTextoLogin" type="password" name="pass" placeholder="Password">
+                        <input class="inputTextoLogin"  id="inputLoginContrasenya" type="password" name="pass" placeholder="Password">
                         
                     </div>
-                    <!--Boton login-->
-                    <div class="containerBotonLogin">
-                        <button href="usuario.html" class="botonLogin">
-                            INICIAR SESIÓN
-                        </button>
-                    </div>
-                    
-                    <p class="textoRegistroLogin">¿No estás registrado? <span><a href="registro.html">Regístrate</a></span></p>
+
         
         
                 </form>
-            
+                <!--Boton login-->
+                <div class="containerBotonLogin">
+
+                    <button onclick="onClickBotonLogin()" href="usuario.html" class="botonLogin">
+                        INICIAR SESIÓN
+                    </button>
+                </div>
+
+                <p class="textoRegistroLogin">¿No estás registrado? <span><a href="registro.html">Regístrate</a></span></p>
         </div>
 
     </div>
@@ -119,7 +159,7 @@
      
       <a href="http://www.upv.es/es"><img  id="logoUpvFooter" src="Assets/images/logoUPvBlanco.png" alt="logoUPVBlanco"></a>
       <div class="textosFooter">
-          <p style="margin-left: : 2px">&copy; ANGLE CORP</p>
+          <p style="margin-left: 2px">&copy; ANGLE CORP</p>
           <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
           <p>EPSG</p>
           <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>

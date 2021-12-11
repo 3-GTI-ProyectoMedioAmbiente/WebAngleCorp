@@ -28,7 +28,7 @@ function obtenerTodasLasMediciones(cb){
             cb( null, resultado )
         }
     }
-	console.log("hola mundo")
+	//console.log("hola mundo")
 	//realizar peticion REST obtener todas las mediciones
 
     xmlhttp.open("GET", "http://localhost:8080/obtenerTodasLasMediciones", true)
