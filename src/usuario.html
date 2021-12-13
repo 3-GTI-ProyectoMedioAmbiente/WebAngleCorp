@@ -34,10 +34,23 @@
             //console.log(sessionStorage.getItem("usuarioActivoMail"))
             //console.log(sessionStorage.getItem("usuarioActivoNombre"))
             //console.log(document.getElementById("datoUsuarioNombre").innerText)
+
+            //cargamos sus datos en la pagina de info
             document.getElementById("datoUsuarioNombre").innerText = sessionStorage.getItem("usuarioActivoNombre")
             document.getElementById("datoUsuarioApellidos").innerText = sessionStorage.getItem("usuarioActivoApellidos")
             document.getElementById("datoUsuarioMail").innerText = sessionStorage.getItem("usuarioActivoMail")
             document.getElementById("datoUsuarioEdad").innerText = sessionStorage.getItem("usuarioActivoEdad")
+            document.getElementById("datoUsuarioTeléfono").innerText = sessionStorage.getItem("usuarioActivoTelefono")
+
+
+            //cargamos sus datos en el pop up de editar
+
+            document.getElementById("inputNombreEditar").value = sessionStorage.getItem("usuarioActivoNombre")
+            document.getElementById("inputApellidosEditar").value = sessionStorage.getItem("usuarioActivoApellidos")
+            document.getElementById("inputCorreoEditar").value = sessionStorage.getItem("usuarioActivoMail")
+            document.getElementById("inputEdadEditar").value = sessionStorage.getItem("usuarioActivoEdad")
+            document.getElementById("inputTelefonoEditar").value = sessionStorage.getItem("usuarioActivoTelefono")
+
 
         }
 
@@ -46,6 +59,11 @@
         function cerrarSesion(){
             sessionStorage.clear()
             window.location.href = "index.html";
+        }
+    </script>
+    <script>
+        function rellenarDatosUsuario(){
+            document.getElementById("inputNombreEditar").value = "hola"
         }
     </script>
     <script src="LogicaFake/comprobarAcceso.js"></script>
@@ -134,6 +152,10 @@
                                 <img src="Assets/images/calendario-semanal.png" alt="Imagen icono edad">
                                 <p>Edad:</p>
                             </div>
+                            <div>
+                                <img src="Assets/images/telefono.png" alt="Imagen icono edad">
+                                <p>Teléfono:</p>
+                            </div>
                             
                         </div>
                         <div class="textosDatosUsuario">
@@ -142,6 +164,7 @@
                             <p id="datoUsuarioApellidos">Castillo Vidal</p>
                             <p id="datoUsuarioMail">manoloete34@gmail.com</p>
                             <p id="datoUsuarioEdad">46</p>
+                            <p id="datoUsuarioTeléfono">46</p>
 
                         </div>
                         
@@ -156,7 +179,7 @@
         
                 <div class="containerUsuarioInferior">
                    <div>
-                        <a href="">Editar Mi Perfil</a>
+                        <a href="#popupEditar">Editar Mi Perfil</a>
                         <a href="login.html" onclick="cerrarSesion()" id="textoCerrarSesionUsuario">Cerrar Sesión</a>
                     </div>
                     <a href="index.html#quieroMiSensor"> <button class="btnObtenerNodoUsuario">Obtener Mi Nodo</button></a>
@@ -189,6 +212,83 @@
 
 
        </div>
+
+    <div id="popupEditar" class="overlay" onload="rellenarDatosUsuario()">
+
+        <div id="popupBodyEditar">
+            <div class="cabeceraPopUp">
+                <div>
+                    <img src="Assets/images/lapiz.png" alt="Icono lapiz">
+                    <h2>Editar Usuario</h2>
+                </div>
+
+                <a id="cerrar" href="#"><img src="Assets/images/boton-de-cierre%20.png" alt="Imagen cerrar popUp"></a>
+
+            </div>
+
+
+            <div class="popupContentEditar">
+                <!--Input de Nombre-->
+                <div class="inputLogin" data-validate = "Hace falta un nombre valido: ex@abc.xyz">
+
+                    <img src="Assets/images/tarjeta-de-identificacion.png" alt="Imagen de sobre">
+                    <input id="inputNombreEditar" class="inputTextoLogin" type="text" name="name" placeholder="Nombre">
+
+                </div>
+                <!--Input de Apellidos-->
+                <div  class="inputLogin" data-validate = "Apellidos válidos Requeridos">
+
+                    <img src="Assets/images/tarjeta-de-identificacion.png" alt="Imagen tarjeta credito">
+                    <input  id="inputApellidosEditar" class="inputTextoLogin" type="text" name="apellidos" placeholder="Apellidos">
+
+                </div>
+                <!--Input de Edad-->
+                <div  class="inputLogin" data-validate = "Edad válida Requerida">
+
+                    <img src="Assets/images/correo-electronico%20(2).png" alt="Imagen calendario">
+                    <input  id="inputCorreoEditar" class="inputTextoLogin" type="text" name="age" placeholder="Correo">
+
+                </div>
+                <!--Input de Edad-->
+                <div  class="inputLogin" data-validate = "Edad válida Requerida">
+
+                    <img src="Assets/images/calendario-semanal.png" alt="Imagen calendario">
+                    <input  id="inputEdadEditar" class="inputTextoLogin" type="text" name="age" placeholder="Edad">
+
+                </div>
+                <!--Input de telefono-->
+                <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                    <img src="Assets/images/telefono.png" alt="Imagen candado">
+                    <input id="inputTelefonoEditar" class="inputTextoLogin" type="text" name="Rpass" placeholder="Numero de teléfono">
+
+                </div>
+                <!--Input de contraseña antigua-->
+                <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                    <img src="Assets/images/candado.png" alt="Imagen candado">
+                    <input id="inputContrasenyaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Antigua Contraseña">
+
+                </div>
+                <!--Input de contraseña nueva-->
+                <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                    <img src="Assets/images/candado.png" alt="Imagen candado">
+                    <input id="inputContrasenyaNuevaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Nueva Contraseña">
+
+                </div>
+                <!--Input de contraseña nueva repetir-->
+                <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                    <img src="Assets/images/candado.png" alt="Imagen candado">
+                    <input id="inputReContrasenyaNuevaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Repite Nueva Contraseña">
+
+                </div>
+                <button class="botonLogin">Guardar Cambios</button>
+            </div>
+        </div>
+
+    </div>
     
 </body>
 
