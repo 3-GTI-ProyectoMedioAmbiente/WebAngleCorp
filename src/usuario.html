@@ -62,11 +62,156 @@
         }
     </script>
     <script>
-        function rellenarDatosUsuario(){
-            document.getElementById("inputNombreEditar").value = "hola"
+
+        function onClickBotonGuardarCambios(){
+
+            //console.log("se pulsa")
+            //comprobar si el usuario quiere cambiar contraseña
+            if (document.getElementById("checkBoxCambiarContra").checked){
+                //comprobar que todos los campos estan llenos
+                if (document.getElementById("inputNombreEditar").value === "" ||
+                    document.getElementById("inputApellidosEditar").value === "" ||
+                    document.getElementById("inputCorreoEditar").value === "" ||
+                    document.getElementById("inputEdadEditar").value === "" ||
+                    document.getElementById("inputTelefonoEditar").value === "" ||
+                    document.getElementById("inputContrasenyaEditar").value === "" ||
+                    document.getElementById("inputContrasenyaNuevaEditar").value === "" ||
+                    document.getElementById("inputReContrasenyaNuevaEditar").value === ""){
+
+                    alert("Debes rellenar todos los campos")
+                }else{
+                    //alert("adelante")
+
+                    //comprobar que la nueva contraseña es diferente a la anterior
+                    if(document.getElementById("inputContrasenyaEditar").value === document.getElementById("inputContrasenyaNuevaEditar").value){
+                        alert("Si quieres cambiar la contraseña no debe coincidir con la antigua")
+                    }else{
+                        //comprobar si las nuevas contraseñas son diferentes
+                        if(document.getElementById("inputContrasenyaNuevaEditar").value !== document.getElementById("inputReContrasenyaNuevaEditar").value){
+                            alert("Las contraseñas nuevas deben coincidir")
+                        }else{
+                            if (document.getElementById("inputContrasenyaEditar").value !== sessionStorage.getItem("usuarioActivoPassword")){
+                                //si la contraseña antigua no coincide con la contraseña del usuario
+                                alert("Introduce correctamente tu contraseña antigua")
+                            }else{
+                                //caso correcto
+                                let json = crearJSONUsuario(sessionStorage.getItem("usuarioActivoId"),
+                                    document.getElementById("inputNombreEditar").value,
+                                    document.getElementById("inputApellidosEditar").value,
+                                    document.getElementById("inputCorreoEditar").value,
+                                    document.getElementById("inputEdadEditar").value,
+                                    document.getElementById("inputTelefonoEditar").value,
+                                    document.getElementById("inputContrasenyaNuevaEditar").value
+                                )
+                                //llamamos a la logica fake
+                                editarUsuario(function (err,res){
+                                    if (res === "1"){
+                                        alert("Cambios guardados correctamente")
+
+                                        //cambiamos las variables de sesion con la contraseña nueva
+                                        sessionStorage.setItem("usuarioActivoMail",document.getElementById("inputCorreoEditar").value)
+                                        sessionStorage.setItem("usuarioActivoNombre",document.getElementById("inputNombreEditar").value)
+                                        sessionStorage.setItem("usuarioActivoApellidos",document.getElementById("inputApellidosEditar").value)
+                                        sessionStorage.setItem("usuarioActivoEdad",document.getElementById("inputEdadEditar").value)
+                                        sessionStorage.setItem("usuarioActivoTelefono",document.getElementById("inputTelefonoEditar").value)
+                                        sessionStorage.setItem("usuarioActivoPassword",document.getElementById("inputContrasenyaNuevaEditar").value)
+
+                                        //pintamos los datos del usuario en usuario.html y en el popup de editar
+                                        cargarUsuario()
+                                        //redirigir a usuario.html
+                                        window.location.href = 'usuario.html'
+                                    }else{
+                                        alert("Algo ha fallado")
+                                    }
+                                },json)
+                            }
+
+
+                        }
+                    }
+                }
+            }else{
+                if (document.getElementById("inputNombreEditar").value === "" ||
+                    document.getElementById("inputApellidosEditar").value === "" ||
+                    document.getElementById("inputCorreoEditar").value === "" ||
+                    document.getElementById("inputEdadEditar").value === "" ||
+                    document.getElementById("inputTelefonoEditar").value === ""){
+
+                    alert("Debes rellenar todos los campos")
+                }else{
+                    //alert("adelante")
+                    //caso correcto
+                    let json = crearJSONUsuario(sessionStorage.getItem("usuarioActivoId"),
+                        document.getElementById("inputNombreEditar").value,
+                        document.getElementById("inputApellidosEditar").value,
+                        document.getElementById("inputCorreoEditar").value,
+                        document.getElementById("inputEdadEditar").value,
+                        document.getElementById("inputTelefonoEditar").value,
+                        sessionStorage.getItem("usuarioActivoPassword")
+                    )
+                    //llamamos a la logica fake
+                    editarUsuario(function (err,res){
+                        if (res === "1"){
+                            alert("Cambios guardados correctamente")
+                            //cambiamos las variables de sesion sin la contraseña nueva
+                            sessionStorage.setItem("usuarioActivoMail",document.getElementById("inputCorreoEditar").value)
+                            sessionStorage.setItem("usuarioActivoNombre",document.getElementById("inputNombreEditar").value)
+                            sessionStorage.setItem("usuarioActivoApellidos",document.getElementById("inputApellidosEditar").value)
+                            sessionStorage.setItem("usuarioActivoEdad",document.getElementById("inputEdadEditar").value)
+                            sessionStorage.setItem("usuarioActivoTelefono",document.getElementById("inputTelefonoEditar").value)
+
+                            //pintamos los datos del usuario en usuario.html y en el popup de editar
+                            cargarUsuario()
+                            //redirigir a usuario.html
+                            window.location.href = 'usuario.html'
+                        }else{
+                            alert("Algo ha fallado")
+                        }
+
+                    },json)
+
+                }
+            }
+
+
+
+
+            //hacer json con los campos
+            //cambiar los datos del usuario y volver a cargar la pagina
+
+            console.log(sessionStorage.getItem("usuarioActivoId"))
+        }
+
+
+
+    </script>
+    <script>
+        function toggleDivCambiarContra() {
+            if (document.getElementById("divQuieroCambiarMiContrasenya").style.display == "inherit"){
+                document.getElementById("divQuieroCambiarMiContrasenya").style.display = "none";
+            }else{
+                document.getElementById("divQuieroCambiarMiContrasenya").style.display = "inherit";
+            }
+
+            console.log(document.getElementById('checkBoxAutobusero').checked)
+        }
+    </script>
+    <script>
+        function crearJSONUsuario(id,nombre,apellidos,mail,edad,telefono,contrasenya){
+            let json = {
+                "id_usuario": id,
+                "nombre": nombre,
+                "apellidos": apellidos,
+                "mail":mail,
+                "edad": edad,
+                "telefono":telefono,
+                "password": contrasenya
+            };
+            return json
         }
     </script>
     <script src="LogicaFake/comprobarAcceso.js"></script>
+    <script src="LogicaFake/editarUsuario.js"></script>
 </head>
 <body class="bodyUsuario" onload="cargarUsuario()">
     <header class="header">
@@ -196,7 +341,7 @@
 
           <a href="http://www.upv.es/es"><img  id="logoUpvFooter" src="Assets/images/logoUPvBlanco.png" alt="logoUPVBlanco"></a>
           <div class="textosFooter">
-              <p style="margin-left: : 2px">&copy; ANGLE CORP</p>
+              <p style="margin-left:2px">&copy; ANGLE CORP</p>
               <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
               <p>EPSG</p>
               <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
@@ -213,79 +358,94 @@
 
        </div>
 
-    <div id="popupEditar" class="overlay" onload="rellenarDatosUsuario()">
+    <div id="popupEditar" class="overlay">
 
         <div id="popupBodyEditar">
-            <div class="cabeceraPopUp">
+            <div class="cabeceraPopUpEditar">
                 <div>
                     <img src="Assets/images/lapiz.png" alt="Icono lapiz">
                     <h2>Editar Usuario</h2>
                 </div>
 
-                <a id="cerrar" href="#"><img src="Assets/images/boton-de-cierre%20.png" alt="Imagen cerrar popUp"></a>
+                <a id="cerrarEditarUsuario" href="#"><img src="Assets/images/boton-de-cierre%20.png" alt="Imagen cerrar popUp"></a>
 
             </div>
 
 
             <div class="popupContentEditar">
-                <!--Input de Nombre-->
-                <div class="inputLogin" data-validate = "Hace falta un nombre valido: ex@abc.xyz">
+                <div class="containerPopUpEditarIzquierda">
+                    <!--Input de Nombre-->
+                    <div class="inputLogin" data-validate = "Hace falta un nombre valido: ex@abc.xyz">
 
-                    <img src="Assets/images/tarjeta-de-identificacion.png" alt="Imagen de sobre">
-                    <input id="inputNombreEditar" class="inputTextoLogin" type="text" name="name" placeholder="Nombre">
+                        <img src="Assets/images/tarjeta-de-identificacion.png" alt="Imagen de sobre">
+                        <input id="inputNombreEditar" class="inputTextoLogin" type="text" name="name" placeholder="Nombre">
 
+                    </div>
+                    <!--Input de Apellidos-->
+                    <div  class="inputLogin" data-validate = "Apellidos válidos Requeridos">
+
+                        <img src="Assets/images/tarjeta-de-identificacion.png" alt="Imagen tarjeta credito">
+                        <input  id="inputApellidosEditar" class="inputTextoLogin" type="text" name="apellidos" placeholder="Apellidos">
+
+                    </div>
+                    <!--Input de Edad-->
+                    <div  class="inputLogin" data-validate = "Edad válida Requerida">
+
+                        <img src="Assets/images/correo-electronico%20(2).png" alt="Imagen calendario">
+                        <input  id="inputCorreoEditar" class="inputTextoLogin" type="text" name="age" placeholder="Correo">
+
+                    </div>
+                    <!--Input de Edad-->
+                    <div  class="inputLogin" data-validate = "Edad válida Requerida">
+
+                        <img src="Assets/images/calendario-semanal.png" alt="Imagen calendario">
+                        <input  id="inputEdadEditar" class="inputTextoLogin" type="text" name="age" placeholder="Edad">
+
+                    </div>
+                    <!--Input de telefono-->
+                    <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                        <img src="Assets/images/telefono.png" alt="Imagen candado">
+                        <input id="inputTelefonoEditar" class="inputTextoLogin" type="text" name="Rpass" placeholder="Numero de teléfono">
+
+                    </div>
                 </div>
-                <!--Input de Apellidos-->
-                <div  class="inputLogin" data-validate = "Apellidos válidos Requeridos">
+                <div class="containerPopUpEditarDerecha">
+                    <span  class="divCheckBoxCambiar" style="display: flex;flex-direction: row">
+                                <p>¿Quieres cambiar tu contraseña?</p>
+                        <!-- Rounded switch -->
+                                <label style="margin-left: 10px" class="switch">
+                                  <input id="checkBoxCambiarContra" onclick="toggleDivCambiarContra()" type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                </span>
 
-                    <img src="Assets/images/tarjeta-de-identificacion.png" alt="Imagen tarjeta credito">
-                    <input  id="inputApellidosEditar" class="inputTextoLogin" type="text" name="apellidos" placeholder="Apellidos">
+                    <div id="divQuieroCambiarMiContrasenya" style="display: none">
+                        <!--Input de contraseña antigua-->
+                        <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
 
+                            <img src="Assets/images/candado.png" alt="Imagen candado">
+                            <input id="inputContrasenyaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Antigua Contraseña">
+
+                        </div>
+                        <!--Input de contraseña nueva-->
+                        <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                            <img src="Assets/images/candado.png" alt="Imagen candado">
+                            <input id="inputContrasenyaNuevaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Nueva Contraseña">
+
+                        </div>
+                        <!--Input de contraseña nueva repetir-->
+                        <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                            <img src="Assets/images/candado.png" alt="Imagen candado">
+                            <input id="inputReContrasenyaNuevaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Repite Nueva Contraseña">
+
+                        </div>
+                    </div>
                 </div>
-                <!--Input de Edad-->
-                <div  class="inputLogin" data-validate = "Edad válida Requerida">
-
-                    <img src="Assets/images/correo-electronico%20(2).png" alt="Imagen calendario">
-                    <input  id="inputCorreoEditar" class="inputTextoLogin" type="text" name="age" placeholder="Correo">
-
-                </div>
-                <!--Input de Edad-->
-                <div  class="inputLogin" data-validate = "Edad válida Requerida">
-
-                    <img src="Assets/images/calendario-semanal.png" alt="Imagen calendario">
-                    <input  id="inputEdadEditar" class="inputTextoLogin" type="text" name="age" placeholder="Edad">
-
-                </div>
-                <!--Input de telefono-->
-                <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
-
-                    <img src="Assets/images/telefono.png" alt="Imagen candado">
-                    <input id="inputTelefonoEditar" class="inputTextoLogin" type="text" name="Rpass" placeholder="Numero de teléfono">
-
-                </div>
-                <!--Input de contraseña antigua-->
-                <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
-
-                    <img src="Assets/images/candado.png" alt="Imagen candado">
-                    <input id="inputContrasenyaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Antigua Contraseña">
-
-                </div>
-                <!--Input de contraseña nueva-->
-                <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
-
-                    <img src="Assets/images/candado.png" alt="Imagen candado">
-                    <input id="inputContrasenyaNuevaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Nueva Contraseña">
-
-                </div>
-                <!--Input de contraseña nueva repetir-->
-                <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
-
-                    <img src="Assets/images/candado.png" alt="Imagen candado">
-                    <input id="inputReContrasenyaNuevaEditar" class="inputTextoLogin" type="password" name="pass" placeholder="Repite Nueva Contraseña">
-
-                </div>
-                <button class="botonLogin">Guardar Cambios</button>
             </div>
+            <button class="botonLogin" onclick="onClickBotonGuardarCambios()">Guardar Cambios</button>
         </div>
 
     </div>

@@ -771,16 +771,69 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     box-shadow: 0 0 5px #CCC;
     transition: all 5s ease-in-out;
     background-color: aliceblue;
-    width: 30%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
 
+    align-content: center;
+    align-items: center;
+
+}
+.cabeceraPopUpEditar{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    width: 90%;
+}
+.cabeceraPopUpEditar div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.cabeceraPopUpEditar div img{
+    padding: 10px;
+
+}
+.cabeceraPopUpEditar div h2{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    margin: 0px;
+    color: cadetblue;
+
+}
+#cerrarEditarUsuario{
+    margin-left: 400px;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #F00;
+    transition: all 200ms;
 }
 .popupContentEditar{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    width: 80%;
+    margin-bottom: 50px;
+    justify-content: space-between;
     align-items: center;
     align-content: center;
-    margin-top: 20px;
+    margin-top: 80px;
+}
+.divCheckBoxCambiar{
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.divCheckBoxCambiar p{
+    margin: 0;
+}
+#divQuieroCambiarMiContrasenya{
+    display: flex;
+    flex-direction: column;
 }
 /****Registro*****************************/
 .containerRegistro{
