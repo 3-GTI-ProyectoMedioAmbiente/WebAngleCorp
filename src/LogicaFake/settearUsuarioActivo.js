@@ -13,6 +13,7 @@
 
 function settearUsuarioActivo(usuario){
 
+    sessionStorage.setItem("usuarioActivoId",usuario["id"])
     sessionStorage.setItem("usuarioActivoMail",usuario["mail"])
     sessionStorage.setItem("usuarioActivoNombre",usuario["nombre"])
     sessionStorage.setItem("usuarioActivoApellidos",usuario["apellidos"])

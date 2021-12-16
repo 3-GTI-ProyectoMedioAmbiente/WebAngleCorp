@@ -29,6 +29,102 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     -->
     <script src="LogicaFake/comprobarAcceso.js"></script>
+    <script src="LogicaFake/crearUsuario.js"></script>
+    <script>
+        function toggleInputAutobusero(){
+            if (document.getElementById("inputMatricula").style.display == "inherit"){
+                document.getElementById("inputMatricula").style.display = "none";
+            }else{
+                document.getElementById("inputMatricula").style.display = "inherit";
+            }
+
+            console.log(document.getElementById('checkBoxAutobusero').checked)
+        }
+    </script>
+    <script>
+        function botonRegistroPulsado(){
+
+            if(document.getElementById('inputNombreRegistro').value === "" ||
+                document.getElementById('inputApellidosRegistro').value === "" ||
+                document.getElementById('inputCorreoRegistro').value === "" ||
+                document.getElementById('inputEdadRegistro').value === "" ||
+                document.getElementById('inputTelefonoRegistro').value === "" ||
+                document.getElementById('inputContrasenyaRegistro').value === "" ||
+                document.getElementById('inputReContrasenyaRegistro').value === ""){
+                console.log("falta algun campo por rellenar ")
+                alert("Es obligatorio rellenar todos los campos")
+            }else{
+                //console.log("entro al else estan todos los campos llenos ")
+                if (document.getElementById('checkBoxAutobusero').checked && document.getElementById('inputRegistroMatricula').value === ""){
+                    //console.log("el autobusero esta check y matricula vacio ")
+                    alert("El campo de matrícula es obligatorio")
+                }else{
+                    //caso correcto ,comprobamos si las contraseñas son iguales
+                    //console.log("Todo correcto")
+                    if (document.getElementById('inputContrasenyaRegistro').value === document.getElementById('inputReContrasenyaRegistro').value){
+                        //alert("Las contraseñas coinciden")
+
+                        if (document.getElementById('checkBoxAutobusero').checked){
+                            crearUsuario(function (err,res){
+                                //console.log(res)
+                                    if(res === "-1"){
+                                        alert("Ya existe una cuenta con este correo electrónico")
+                                    }else if(res === "1"){
+                                        window.location.href= 'login.html';
+                                        alert("El registro se ha completado correctamente")
+                                    }else{
+                                        alert("Ha ocurrido un error inesperado")
+                                    }
+                            },
+                                document.getElementById('inputNombreRegistro').value,
+                                document.getElementById('inputApellidosRegistro').value,
+                                document.getElementById('inputCorreoRegistro').value,
+                                document.getElementById('inputEdadRegistro').value,
+                                document.getElementById('inputTelefonoRegistro').value,
+                                document.getElementById('inputContrasenyaRegistro').value,
+                                true,
+                                document.getElementById('inputRegistroMatricula').value
+                            )
+
+
+
+                        }else{
+                            crearUsuario(function (err,res){
+                                console.log(res)
+                                if(res === "-1"){
+                                    alert("Ya existe una cuenta con este correo electrónico")
+                                }else if(res === "1"){
+                                    window.location.href= 'login.html';
+                                    alert("El registro se ha completado correctamente")
+                                }else{
+                                    alert("Ha ocurrido un error inesperado")
+                                }
+
+
+
+
+                            },
+                                document.getElementById('inputNombreRegistro').value,
+                                document.getElementById('inputApellidosRegistro').value,
+                                document.getElementById('inputCorreoRegistro').value,
+                                document.getElementById('inputEdadRegistro').value,
+                                document.getElementById('inputTelefonoRegistro').value,
+                                document.getElementById('inputContrasenyaRegistro').value,
+                                false,
+                                'Sin Matricula'
+                            )
+
+
+                        }
+
+                    }else{
+                        alert("Las contraseñas deben coincidir")
+                    }
+                }
+            }
+
+        }
+    </script>
 </head>
 <body class="body-login">
     <header class="header">
@@ -80,71 +176,101 @@
                </div>
                <div class="containerRegistroInputs">
                     <span class="tituloFormularioLogin">Registro</span>
-                    <form class="formRegistro">
+                    <div class="formRegistro">
 
 
                         <!--Input de Nombre-->
                         <div class="inputLogin" data-validate = "Hace falta un nombre valido: ex@abc.xyz">
 
                             <img src="Assets/images/tarjeta-de-identificacion.png" alt="Imagen de sobre">
-                            <input class="inputTextoLogin" type="text" name="name" placeholder="Nombre">
+                            <input id="inputNombreRegistro" class="inputTextoLogin" type="text" name="name" placeholder="Nombre">
 
                         </div>
                         <!--Input de Apellidos-->
-                        <div class="inputLogin" data-validate = "Apellidos válidos Requeridos">
+                        <div  class="inputLogin" data-validate = "Apellidos válidos Requeridos">
 
                             <img src="Assets/images/tarjeta-de-identificacion.png" alt="Imagen tarjeta credito">
-                            <input class="inputTextoLogin" type="text" name="apellidos" placeholder="Apellidos">
+                            <input  id="inputApellidosRegistro" class="inputTextoLogin" type="text" name="apellidos" placeholder="Apellidos">
 
                         </div>
                         <!--Input de Correo-->
-                        <div class="inputLogin" data-validate = "Correo válido Requerido">
+                        <div  class="inputLogin" data-validate = "Correo válido Requerido">
 
                             <img src="Assets/images/correo-electronico%20(2).png" alt="Imagen sobre">
-                            <input class="inputTextoLogin" type="text" name="mail" placeholder="Correo electrónico">
+                            <input id="inputCorreoRegistro" class="inputTextoLogin" type="text" name="mail" placeholder="Correo electrónico">
 
                         </div>
-                        <div class="inputLogin" data-validate = "Edad válida Requerida">
+                        <!--Input de Edad-->
+                        <div  class="inputLogin" data-validate = "Edad válida Requerida">
 
                             <img src="Assets/images/calendario-semanal.png" alt="Imagen calendario">
-                            <input class="inputTextoLogin" type="text" name="age" placeholder="Edad">
+                            <input  id="inputEdadRegistro" class="inputTextoLogin" type="text" name="age" placeholder="Edad">
+
+                        </div>
+                        <!--Input de telefono-->
+                        <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                            <img src="Assets/images/telefono.png" alt="Imagen candado">
+                            <input id="inputTelefonoRegistro" class="inputTextoLogin" type="text" name="Rpass" placeholder="Numero de teléfono">
 
                         </div>
                         <br>
                         <!--Input de contraseña-->
-                        <div class="inputLogin" data-validate = "Contraseña válida Requerida">
+                        <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
 
                             <img src="Assets/images/candado.png" alt="Imagen candado">
-                            <input class="inputTextoLogin" type="password" name="pass" placeholder="Contraseña">
+                            <input id="inputContrasenyaRegistro" class="inputTextoLogin" type="password" name="pass" placeholder="Contraseña">
 
                         </div>
                         <!--Input de repiteContraseña-->
-                        <div class="inputLogin" data-validate = "Contraseña válida Requerida">
+                        <div  class="inputLogin" data-validate = "Contraseña válida Requerida">
 
                             <img src="Assets/images/candado.png" alt="Imagen candado">
-                            <input class="inputTextoLogin" type="password" name="Rpass" placeholder="Repite contraseña">
+                            <input id="inputReContrasenyaRegistro" class="inputTextoLogin" type="password" name="Rpass" placeholder="Repite contraseña">
 
                         </div>
+                        <br>
+                        <div class="divAutobusero">
+                            <span>
+                                <p>¿Eres autobusero?</p>
+                                <!-- Rounded switch -->
+                                <label   class="switch">
+                                  <input id="checkBoxAutobusero" onclick="toggleInputAutobusero()" type="checkbox">
+                                  <span class="slider round"></span>
+                                </label>
+                            </span>
+
+                            <!--Input de metricula-->
+                            <div  id="inputMatricula" style="display: none" class="inputLogin" data-validate = "Contraseña válida Requerida">
+
+                                <img src="Assets/images/matricula%20(1).png" alt="Imagen candado">
+                                <input id="inputRegistroMatricula" class="inputTextoLogin" type="text" name="matri" placeholder="Matricula de tu autobús">
+
+                            </div>
+                        </div>
+
+
+
                         <!--Boton login-->
                         <div class="containerBotonLogin">
-                            <button  href="login.html" class="botonLogin">
+                            <button  onclick="botonRegistroPulsado()" id="botonRegistro"  class="botonLogin">
                                 REGÍSTRATE
-                                <a href="login.html"></a>
+
                             </button>
                         </div>
 
 
 
 
-                    </form>
+                    </div>
                </div>
                
             
         </div>
 
     </div>
-    
-    
+
+
 </body>
     <div style="margin-top: 45px;" class="footer">
 
