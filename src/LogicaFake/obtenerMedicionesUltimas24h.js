@@ -1,6 +1,6 @@
 //--------------------------------------------
 /**
- * obtenerTodasLasMediciones.js
+ * obtenerMedicionesUltimas24h.js
  * @author Sergi Sirvent Sempere
  * Fecha: 2021/10
  *
@@ -9,7 +9,7 @@
  *
  * @param cb {Callback} - Callback para comunicarse con la logica de negocio
  */
-function obtenerTodasLasMediciones(cb){
+function obtenerMedicionesUltimas24h(cb){
     // preparar la llamada remota
     var xmlhttp = new XMLHttpRequest()
     xmlhttp.onreadystatechange = function() {
@@ -28,10 +28,8 @@ function obtenerTodasLasMediciones(cb){
             cb( null, resultado )
         }
     }
-	//console.log("hola mundo")
-	//realizar peticion REST obtener todas las mediciones
 
-    xmlhttp.open("GET", "http://localhost:5000/obtenerTodasLasMediciones", true)
+    xmlhttp.open("GET", "http://192.168.1.14:5000/obtenerMedicionesUltimas24h", true)
 	xmlhttp.setRequestHeader('Content-Type', 'application/json');
 	xmlhttp.setRequestHeader('Access-Control-Allow-Credentials', 'true');
 	

@@ -536,21 +536,8 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
     flex-direction: column;
     align-items: center;
 }
-.containerMapaHijo div{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    margin-top: 30px;
-    align-items: center;
-    
-}
-.containerMapaHijo div p{
-    margin: 0px;
-    color: cadetblue;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-}
+
+
 .containerMapaHijo div select{
     border: 2px solid cadetblue;
     border-radius: 10px;
@@ -575,6 +562,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 .overlay:target{
   visibility: visible;
   opacity: 1;
+  z-index:999;
 }
 #popupBody{
     
@@ -837,4 +825,22 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 .textosFooter p a{
     text-decoration: none;
     color: grey;
+}
+
+/*Css para el mapa*/
+#map { 
+height: 500px;
+width: 95%;
+z-index:999;
+}
+
+.divClusterRed{
+	background-color: rgba(241, 128, 23, 0.6);
+}
+.divClusterGreen{
+	background-color: rgba(110, 204, 57, 0.6);
+}
+
+.divClusterOrange{
+	background-color: rgba(240, 194, 12, 0.6);
 }
