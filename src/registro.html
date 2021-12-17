@@ -63,59 +63,65 @@
                     //console.log("Todo correcto")
                     if (document.getElementById('inputContrasenyaRegistro').value === document.getElementById('inputReContrasenyaRegistro').value){
                         //alert("Las contraseñas coinciden")
+                        if (document.getElementById("cbDatosAcecptados").checked){
+                            if (document.getElementById('checkBoxAutobusero').checked){
+                                crearUsuario(function (err,res){
+                                        //console.log(res)
+                                        if(res === "-1"){
+                                            alert("Ya existe una cuenta con este correo electrónico")
+                                        }else if(res === "1"){
+                                            window.location.href= 'login.html';
+                                            alert("El registro se ha completado correctamente")
+                                        }else{
+                                            alert("Ha ocurrido un error inesperado")
+                                        }
+                                    },
+                                    document.getElementById('inputNombreRegistro').value,
+                                    document.getElementById('inputApellidosRegistro').value,
+                                    document.getElementById('inputCorreoRegistro').value,
+                                    document.getElementById('inputEdadRegistro').value,
+                                    document.getElementById('inputTelefonoRegistro').value,
+                                    document.getElementById('inputContrasenyaRegistro').value,
+                                    true,
+                                    document.getElementById('inputRegistroMatricula').value
+                                )
 
-                        if (document.getElementById('checkBoxAutobusero').checked){
-                            crearUsuario(function (err,res){
-                                //console.log(res)
-                                    if(res === "-1"){
-                                        alert("Ya existe una cuenta con este correo electrónico")
-                                    }else if(res === "1"){
-                                        window.location.href= 'login.html';
-                                        alert("El registro se ha completado correctamente")
-                                    }else{
-                                        alert("Ha ocurrido un error inesperado")
-                                    }
-                            },
-                                document.getElementById('inputNombreRegistro').value,
-                                document.getElementById('inputApellidosRegistro').value,
-                                document.getElementById('inputCorreoRegistro').value,
-                                document.getElementById('inputEdadRegistro').value,
-                                document.getElementById('inputTelefonoRegistro').value,
-                                document.getElementById('inputContrasenyaRegistro').value,
-                                true,
-                                document.getElementById('inputRegistroMatricula').value
-                            )
 
+
+                            }else{
+                                crearUsuario(function (err,res){
+                                        console.log(res)
+                                        if(res === "-1"){
+                                            alert("Ya existe una cuenta con este correo electrónico")
+                                        }else if(res === "1"){
+                                            window.location.href= 'login.html';
+                                            alert("El registro se ha completado correctamente")
+                                        }else{
+                                            alert("Ha ocurrido un error inesperado")
+                                        }
+
+
+
+
+                                    },
+                                    document.getElementById('inputNombreRegistro').value,
+                                    document.getElementById('inputApellidosRegistro').value,
+                                    document.getElementById('inputCorreoRegistro').value,
+                                    document.getElementById('inputEdadRegistro').value,
+                                    document.getElementById('inputTelefonoRegistro').value,
+                                    document.getElementById('inputContrasenyaRegistro').value,
+                                    false,
+                                    'Sin Matricula'
+                                )
+
+
+                            }
 
 
                         }else{
-                            crearUsuario(function (err,res){
-                                console.log(res)
-                                if(res === "-1"){
-                                    alert("Ya existe una cuenta con este correo electrónico")
-                                }else if(res === "1"){
-                                    window.location.href= 'login.html';
-                                    alert("El registro se ha completado correctamente")
-                                }else{
-                                    alert("Ha ocurrido un error inesperado")
-                                }
-
-
-
-
-                            },
-                                document.getElementById('inputNombreRegistro').value,
-                                document.getElementById('inputApellidosRegistro').value,
-                                document.getElementById('inputCorreoRegistro').value,
-                                document.getElementById('inputEdadRegistro').value,
-                                document.getElementById('inputTelefonoRegistro').value,
-                                document.getElementById('inputContrasenyaRegistro').value,
-                                false,
-                                'Sin Matricula'
-                            )
-
-
+                            alert("Debes aceptar las condiciones de tratamiento de datos ")
                         }
+
 
                     }else{
                         alert("Las contraseñas deben coincidir")
@@ -250,7 +256,10 @@
                         </div>
 
 
-
+                        <div style="display: flex;flex-direction: row;align-items: center;">
+                            <input id="cbDatosAcecptados" type="checkbox" style="margin-right: 5px">
+                            <a href="https://www.boe.es/eli/es/lo/2018/12/05/3/con" style="color: cadetblue"><p style="margin: 0">He leido y acepto las condiciones de tratamiento de datos </p></a>
+                        </div>
                         <!--Boton login-->
                         <div class="containerBotonLogin">
                             <button  onclick="botonRegistroPulsado()" id="botonRegistro"  class="botonLogin">

@@ -37,17 +37,35 @@ function crearUsuario(cb,nombre,apellidos,mail,edad,telefono,contrasenya,isAutob
     xmlhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     xmlhttp.setRequestHeader('Access-Control-Allow-Credentials', 'true');
     xmlhttp.setRequestHeader('Access-Control-Allow-Origin' ,'true');
-    let json = {
-        "mail": mail,
-        "nombre": nombre,
-        "apellidos": apellidos,
-        "isAutobusero":isAutobusero,
-        "edad": edad,
-        "matricula":matricula,
-        "telefono":telefono,
-        "password": contrasenya
-    };
+    if (isAutobusero === false){
+        let json = {
+            "mail": mail,
+            "nombre": nombre,
+            "apellidos": apellidos,
+            "isAutobusero":false,
+            "edad": edad,
+            "matricula":matricula,
+            "telefono":telefono,
+            "password": contrasenya
+        };
+        xmlhttp.send(JSON.stringify(json));
+    }else{
+        let json = {
+            "mail": mail,
+            "nombre": nombre,
+            "apellidos": apellidos,
+            "isAutobusero":true,
+            "edad": edad,
+            "matricula":matricula,
+            "telefono":telefono,
+            "password": contrasenya
+        };
+        console.log("isAutobusero")
+        console.log(isAutobusero)
+        xmlhttp.send(JSON.stringify(json));
+    }
+
 
     //console.log("entro a la logica fake")
-    xmlhttp.send(JSON.stringify(json));
+
 }
