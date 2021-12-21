@@ -27,7 +27,9 @@ function loginUsuario(cb,mail,pass){
             //console.log("Este es el resultado: -->>"+resultado);
 
             //devuelvo el resultado al index.html con la info de la bd
+            console.log(resultado)
             cb( null, resultado )
+
         }
     }
 

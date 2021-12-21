@@ -13,14 +13,30 @@
 
 function settearUsuarioActivo(usuario){
 
+    let date = new Date(usuario["fechaNacimiento"].toString());
+    let dia = date.getDate();
+    let mes = date.getMonth();
+    if (dia.toString().length < 2){
+
+        dia = ("0"+ dia.toString())
+    }
+    if (mes.toString().length < 2){
+
+        mes = ("0"+ mes.toString())
+    }
+
+    //date = usuario["fechaNacimiento"];
+    //date.getDay()
     sessionStorage.setItem("usuarioActivoId",usuario["id"])
     sessionStorage.setItem("usuarioActivoMail",usuario["mail"])
     sessionStorage.setItem("usuarioActivoNombre",usuario["nombre"])
     sessionStorage.setItem("usuarioActivoApellidos",usuario["apellidos"])
     sessionStorage.setItem("usuarioActivoIsAutobusero",usuario["isAutobusero"])
-    sessionStorage.setItem("usuarioActivoEdad",usuario["edad"])
+    sessionStorage.setItem("usuarioActivoFechaNacimiento",date.getFullYear().toString() + "-" + mes + "-" + dia)
     sessionStorage.setItem("usuarioActivoMatricula",usuario["matricula"])
     sessionStorage.setItem("usuarioActivoTelefono",usuario["telefono"])
     sessionStorage.setItem("usuarioActivoPassword",usuario["password"])
 
+
+    //console.log(sessionStorage.getItem("usuarioActivoFechaNacimiento"))
 }

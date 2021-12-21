@@ -9,7 +9,7 @@
  * contraseña:Texto,isAutobusero:VoF,matricula:Texto -> crearUsuario()
  *
  */
-function crearUsuario(cb,nombre,apellidos,mail,edad,telefono,contrasenya,isAutobusero,matricula){
+function crearUsuario(cb,nombre,apellidos,mail,fechaNacimiento,telefono,contrasenya,isAutobusero,matricula){
     // preparar la llamada remota
     var xmlhttp = new XMLHttpRequest()
     xmlhttp.onreadystatechange = function() {
@@ -43,7 +43,7 @@ function crearUsuario(cb,nombre,apellidos,mail,edad,telefono,contrasenya,isAutob
             "nombre": nombre,
             "apellidos": apellidos,
             "isAutobusero":false,
-            "edad": edad,
+            "fechaNacimiento": fechaNacimiento,
             "matricula":matricula,
             "telefono":telefono,
             "password": contrasenya
@@ -55,7 +55,7 @@ function crearUsuario(cb,nombre,apellidos,mail,edad,telefono,contrasenya,isAutob
             "nombre": nombre,
             "apellidos": apellidos,
             "isAutobusero":true,
-            "edad": edad,
+            "fechaNacimiento": fechaNacimiento,
             "matricula":matricula,
             "telefono":telefono,
             "password": contrasenya

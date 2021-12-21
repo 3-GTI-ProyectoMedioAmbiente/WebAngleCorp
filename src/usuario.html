@@ -31,15 +31,16 @@
     <script>
         function cargarUsuario(){
 
-            //console.log(sessionStorage.getItem("usuarioActivoMail"))
+
             //console.log(sessionStorage.getItem("usuarioActivoNombre"))
             //console.log(document.getElementById("datoUsuarioNombre").innerText)
+            console.log(sessionStorage.getItem("usuarioActivoFechaNacimiento"))
 
             //cargamos sus datos en la pagina de info
             document.getElementById("datoUsuarioNombre").innerText = sessionStorage.getItem("usuarioActivoNombre")
             document.getElementById("datoUsuarioApellidos").innerText = sessionStorage.getItem("usuarioActivoApellidos")
             document.getElementById("datoUsuarioMail").innerText = sessionStorage.getItem("usuarioActivoMail")
-            document.getElementById("datoUsuarioEdad").innerText = sessionStorage.getItem("usuarioActivoEdad")
+            document.getElementById("datoUsuarioEdad").innerText = sessionStorage.getItem("usuarioActivoFechaNacimiento")
             document.getElementById("datoUsuarioTeléfono").innerText = sessionStorage.getItem("usuarioActivoTelefono")
 
 
@@ -48,10 +49,10 @@
             document.getElementById("inputNombreEditar").value = sessionStorage.getItem("usuarioActivoNombre")
             document.getElementById("inputApellidosEditar").value = sessionStorage.getItem("usuarioActivoApellidos")
             document.getElementById("inputCorreoEditar").value = sessionStorage.getItem("usuarioActivoMail")
-            document.getElementById("inputEdadEditar").value = sessionStorage.getItem("usuarioActivoEdad")
+            document.getElementById("inputEdadEditar").value = sessionStorage.getItem("usuarioActivoFechaNacimiento")
             document.getElementById("inputTelefonoEditar").value = sessionStorage.getItem("usuarioActivoTelefono")
 
-
+            //console.log(document.getElementById("inputEdadEditar").value)
         }
 
     </script>
@@ -112,7 +113,7 @@
                                         sessionStorage.setItem("usuarioActivoMail",document.getElementById("inputCorreoEditar").value)
                                         sessionStorage.setItem("usuarioActivoNombre",document.getElementById("inputNombreEditar").value)
                                         sessionStorage.setItem("usuarioActivoApellidos",document.getElementById("inputApellidosEditar").value)
-                                        sessionStorage.setItem("usuarioActivoEdad",document.getElementById("inputEdadEditar").value)
+                                        sessionStorage.setItem("usuarioActivoFechaNacimiento",document.getElementById("inputEdadEditar").value)
                                         sessionStorage.setItem("usuarioActivoTelefono",document.getElementById("inputTelefonoEditar").value)
                                         sessionStorage.setItem("usuarioActivoPassword",document.getElementById("inputContrasenyaNuevaEditar").value)
 
@@ -157,7 +158,7 @@
                             sessionStorage.setItem("usuarioActivoMail",document.getElementById("inputCorreoEditar").value)
                             sessionStorage.setItem("usuarioActivoNombre",document.getElementById("inputNombreEditar").value)
                             sessionStorage.setItem("usuarioActivoApellidos",document.getElementById("inputApellidosEditar").value)
-                            sessionStorage.setItem("usuarioActivoEdad",document.getElementById("inputEdadEditar").value)
+                            sessionStorage.setItem("usuarioActivoFechaNacimiento",document.getElementById("inputEdadEditar").value)
                             sessionStorage.setItem("usuarioActivoTelefono",document.getElementById("inputTelefonoEditar").value)
 
                             //pintamos los datos del usuario en usuario.html y en el popup de editar
@@ -197,13 +198,13 @@
         }
     </script>
     <script>
-        function crearJSONUsuario(id,nombre,apellidos,mail,edad,telefono,contrasenya){
+        function crearJSONUsuario(id,nombre,apellidos,mail,fechaNacimiento,telefono,contrasenya){
             let json = {
                 "id_usuario": id,
                 "nombre": nombre,
                 "apellidos": apellidos,
                 "mail":mail,
-                "edad": edad,
+                "fechaNacimiento": fechaNacimiento,
                 "telefono":telefono,
                 "password": contrasenya
             };
@@ -388,7 +389,7 @@
                         <input  id="inputApellidosEditar" class="inputTextoLogin" type="text" name="apellidos" placeholder="Apellidos">
 
                     </div>
-                    <!--Input de Edad-->
+                    <!--Input de Mail-->
                     <div  class="inputLogin" data-validate = "Edad válida Requerida">
 
                         <img src="Assets/images/correo-electronico%20(2).png" alt="Imagen calendario">
@@ -399,7 +400,7 @@
                     <div  class="inputLogin" data-validate = "Edad válida Requerida">
 
                         <img src="Assets/images/calendario-semanal.png" alt="Imagen calendario">
-                        <input  id="inputEdadEditar" class="inputTextoLogin" type="text" name="age" placeholder="Edad">
+                        <input  id="inputEdadEditar" class="inputTextoLogin" type="date" name="age" placeholder="Edad">
 
                     </div>
                     <!--Input de telefono-->

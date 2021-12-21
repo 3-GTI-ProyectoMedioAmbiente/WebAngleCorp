@@ -840,9 +840,10 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 
 }
 
-.containerImagenGrandeRegistro{
-    
+#imagenInputEdad{
+    margin-right: 35px;
 }
+
 .containerRegistroInputs{
     justify-content: center;
     text-align: center;

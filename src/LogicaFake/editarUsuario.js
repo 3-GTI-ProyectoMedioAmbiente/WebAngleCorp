@@ -41,7 +41,7 @@ function editarUsuario(cb,usuario){
         "mail": usuario['mail'],
         "nombre": usuario['nombre'],
         "apellidos": usuario['apellidos'],
-        "edad": usuario['edad'],
+        "fechaNacimiento": usuario['fechaNacimiento'],
         "telefono":usuario['telefono'],
         "password": usuario['password']
     };

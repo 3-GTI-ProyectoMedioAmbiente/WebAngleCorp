@@ -34,6 +34,7 @@
         function toggleInputAutobusero(){
             if (document.getElementById("inputMatricula").style.display == "inherit"){
                 document.getElementById("inputMatricula").style.display = "none";
+                //console.log(document.getElementById("inputEdadRegistro").value);
             }else{
                 document.getElementById("inputMatricula").style.display = "inherit";
             }
@@ -90,7 +91,7 @@
 
                             }else{
                                 crearUsuario(function (err,res){
-                                        console.log(res)
+                                        //console.log(res)
                                         if(res === "-1"){
                                             alert("Ya existe una cuenta con este correo electrónico")
                                         }else if(res === "1"){
@@ -209,8 +210,8 @@
                         <!--Input de Edad-->
                         <div  class="inputLogin" data-validate = "Edad válida Requerida">
 
-                            <img src="Assets/images/calendario-semanal.png" alt="Imagen calendario">
-                            <input  id="inputEdadRegistro" class="inputTextoLogin" type="text" name="age" placeholder="Edad">
+                            <img src="Assets/images/calendario-semanal.png" alt="Imagen calendario" id="imagenInputEdad">
+                            <input  id="inputEdadRegistro" class="inputTextoLogin" type="date" name="age" min="1921-01-01" max="2021-12-31" placeholder="Fecha de nacimiento">
 
                         </div>
                         <!--Input de telefono-->
