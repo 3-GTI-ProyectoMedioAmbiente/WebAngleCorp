@@ -43,7 +43,8 @@ function editarUsuario(cb,usuario){
         "apellidos": usuario['apellidos'],
         "fechaNacimiento": usuario['fechaNacimiento'],
         "telefono":usuario['telefono'],
-        "password": usuario['password']
+        "password": usuario['password'],
+		"id_sensor": usuario['id_sensor']
     };
 
     //console.log("entro a la logica fake")

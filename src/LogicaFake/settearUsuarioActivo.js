@@ -36,6 +36,7 @@ function settearUsuarioActivo(usuario){
     sessionStorage.setItem("usuarioActivoMatricula",usuario["matricula"])
     sessionStorage.setItem("usuarioActivoTelefono",usuario["telefono"])
     sessionStorage.setItem("usuarioActivoPassword",usuario["password"])
+	sessionStorage.setItem("usuarioActivoIdSensor",usuario["id_sensor"])
 
 
     //console.log(sessionStorage.getItem("usuarioActivoFechaNacimiento"))
