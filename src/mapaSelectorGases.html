@@ -1,0 +1,289 @@
+<!-- 
+    mapa.html
+    Autor: Sergi Sirvent Sempere
+    Fecha: 10/2021
+    Este archivo se encarga de contener el contenido de la página que se muestra el mapa
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angle Corp</title>
+
+    <!-- Links estilos-->
+        <link rel="stylesheet" href="Assets/css/bootstrap.min.css">
+        <!-- Css -->
+        <link rel="stylesheet" href="Assets/css/cssGeneral.css" type="text/css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300&display=swap" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="Assets/images/LOGO.png">
+		<!-- LeefLet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="crossorigin=""/>
+		<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+	<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+	<link rel="stylesheet" href="Assets/css/leaflet.awesome-markers.css">
+
+		<!-- Leaflet JS-->
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="crossorigin=""></script>
+		<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
+		<script src="https://unpkg.com/leaflet.markercluster.layersupport@2.0.1/dist/leaflet.markercluster.layersupport.js"></script>
+		<script src="Assets/js/leaflet.awesome-markers.js"></script>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+		<script src="Assets/js/leaflet-heat.js"></script>
+
+		<!-- Boostrap JS-->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- ---------------------------------------------------- -->
+      <!-- incluimos los metodos de la logica fake -->
+      <script src="LogicaFake/obtenerMedicionesUltimas24h.js"></script>
+      <script src="LogicaFake/comprobarAcceso.js"></script>
+	  
+</head>
+<body class="bodyMediciones">
+    <header class="header">
+        
+        <!-- Logo --------------------------------------------------------------------->
+        <a href="index.html"><img class="logo" src="Assets/images/LOGO.png" alt="Imagen del logo"></a>
+        <!-- Nav --------------------------------------------------------------------->
+        <nav class="navbar navbar-expand-lg navbar-light">
+
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                     <ul class="navbar-nav mr-auto">
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html">INICIO </a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="mapa.html">MAPA</a>
+                      </li>
+
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html#containerContaminantes">CONTAMINANTES</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="index.html#containerSobreNosotros">¿QUIÉNES SOMOS?</a>
+                      </li>
+                         <li class="nav-item">
+                             <a class="nav-link" style="cursor: pointer" onclick="comprobarAcceso()" >MI PERFIL</a>
+                         </li>
+
+                    </ul>
+
+                  </div>
+            </nav>
+          
+      </header>
+    <div style="margin-bottom: 100px"class="container">
+        
+        <div class="containerMapa">
+
+            <div class="containerTituloMapa">
+                <div>
+                    <img src="Assets/images/mapa.png" alt="Imagen titulo mapa">
+                    <h1 class="tituloMediciones">Mapa de contaminantes</h1>
+                </div>
+                <div>
+                   
+                   <a href="#popup"><img src="Assets/images/iconoLeyenda.png" alt="Imagen libro de leyenda"></a> 
+                </div>
+                
+            </div>
+            <div class="containerMapaHijo">
+			<!--
+				<img  class="imagenMapa" src="Assets/images/imagenMapaGandia.png" alt="Imagen del mapa de Gandia">			
+			-->
+                <div id="map"></div>
+            </div>
+            
+            
+            
+        </div>
+
+    </div>
+    
+    <div id="popup" class="overlay">
+        
+            <div id="popupBody">
+               <div class="cabeceraPopUp">
+                    <div>
+                       <img src="Assets/images/iconoLeyenda.png" alt="Icono leyenda">
+                        <h2>Leyenda</h2>
+                    </div>
+                    
+                    <a id="cerrar" href="#"><img src="Assets/images/boton-de-cierre%20.png" alt="Imagen cerrar popUp"></a>
+                 
+               </div>
+                
+                
+                <div class="popupContent">
+                    <ul>
+                        <li>Color <span style="color: red">Rojo</span>: Alto valor en concentración del contaminante en el aire.</li>
+                        <li>Color <span style="color: orange">Amarillo</span>: Valor medio en concentración del contaminante en el aire.</li>
+                        <li>Color <span style="color: green">Verde</span>: Bajo valor en concentración del contaminante en el aire.</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    
+    <div class="footer">
+     
+      <a href="http://www.upv.es/es"><img  id="logoUpvFooter" src="Assets/images/logoUPvBlanco.png" alt="logoUPVBlanco"></a>
+      <div class="textosFooter">
+          <p style="margin-left: : 2px">&copy; ANGLE CORP</p>
+          <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
+          <p>EPSG</p>
+          <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
+          <p><a href="mailto:anglecorp@epsg.upv.es">anglecorp@epsg.upv.es</a></p>
+          <div style="border-left: 2px solid aliceblue;margin-left: 2px;margin: 5px;">|</div>
+          <p>2021</p>
+          
+          
+      </div>
+      <a href="index.html"><img src="Assets/images/LOGO.png" alt="Logo de Angle Corp"></a>
+      
+      
+      
+      
+   </div>
+</body>
+<script>
+
+function getColor(number){
+	var res;
+	if(number>=0 && number<=40){
+		res="divClusterGreen"
+	}else if(number>40 && number<=100){
+		res="divClusterOrange"
+	}else if(number>100){
+		res="divClusterRed"
+	}
+	return res;
+}
+
+var mapboxAttribution = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+var mapId = 'mapbox/streets-v11';
+var urlMap = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}';
+var myAccesToken = 'pk.eyJ1IjoianVhbmM5OSIsImEiOiJja3dxa2d3c2IwbmJtMnZwMzluMXhnd3Z3In0.RWnqCTyP-8OeXv2lhI5h7w';
+
+//Creamos el mapa
+
+var generalLayer = L.tileLayer(urlMap, {id: mapId, attribution: mapboxAttribution,  maxZoom: 18,accessToken: myAccesToken}),
+	NO2Layer = L.tileLayer(urlMap, {id: mapId, attribution: mapboxAttribution,  maxZoom: 18,accessToken: myAccesToken}),
+    SOLayer = L.tileLayer(urlMap, {id: mapId, attribution: mapboxAttribution,  maxZoom: 18,accessToken: myAccesToken}),
+	O3Layer = L.tileLayer(urlMap, {id: mapId, attribution: mapboxAttribution,  maxZoom: 18,accessToken: myAccesToken}),
+	CO2Layer = L.tileLayer(urlMap, {id: mapId, attribution: mapboxAttribution,  maxZoom: 18,accessToken: myAccesToken});
+
+var map = L.map('map', {center:[38.99, -0.165], zoom:13.5,layers:[generalLayer, NO2Layer, SOLayer, O3Layer, CO2Layer]});
+
+//L.control.layers(baseMaps, null).addTo(map);
+
+
+var mcgLayerSupportGroup = L.markerClusterGroup.layerSupport({
+			iconCreateFunction : function(cluster) {
+			var val = 0;
+			for (i = 0; i < cluster.getAllChildMarkers().length; i++) {
+				val = val+ parseInt(cluster.getAllChildMarkers()[i].options.alt.medicion)
+				console.log(cluster.getAllChildMarkers()[i].options.alt.medicion)
+			} 
+			var avg = val / cluster.getAllChildMarkers().length;
+			avg = Math.round(avg * 10) / 10
+			
+			return new L.divIcon({
+				html: "<div class=\""+getColor(avg)+"\"><span>" + avg + "</span></div>",
+				className: ' marker-cluster',
+				iconSize: new L.point(40, 40)
+			})
+		}}),
+	gasAQI = L.layerGroup(),
+	gasNO2 = L.layerGroup(),
+    gasSO = L.layerGroup(),
+	gasO3 = L.layerGroup(),
+	gasCO2 = L.layerGroup()
+
+mcgLayerSupportGroup.addTo(map);
+
+obtenerMedicionesUltimas24h(function (err,res) {
+                    var arrayJSON = JSON.parse(res)//almaceno el resultado en un arrayJSON
+                    arrayJSON=arrayJSON.mediciones;
+					var medicion,marker,stringMedicion;
+					
+					// Creates markers
+					var redMarker = L.AwesomeMarkers.icon({
+						markerColor: 'red'
+					});
+					
+					var orangeMarker = L.AwesomeMarkers.icon({
+						markerColor: 'orange'
+					});
+					
+					var greenMarker = L.AwesomeMarkers.icon({
+						markerColor: 'green'
+					});
+  
+                    for(var i = 0 ; i<arrayJSON.length;i++){//recorremos la array y llenamos las filas de la tabla
+						medicion=arrayJSON[i];
+						
+						if(medicion.medicion>=0 && medicion.medicion<=40){
+							marker=L.marker([medicion.localizacion_lat,medicion.localizacion_lon], {icon:greenMarker, alt:medicion});
+						}else if(medicion.medicion>40 && medicion.medicion<=100){
+							marker=L.marker([medicion.localizacion_lat,medicion.localizacion_lon], {icon:orangeMarker,alt:medicion,title:medicion.medicion});
+						}else if(medicion.medicion>100){
+							marker=L.marker([medicion.localizacion_lat,medicion.localizacion_lon], {icon:redMarker, alt:medicion});
+						}
+						
+						marker.bindPopup(generalLayer);
+						marker.addTo(gasAQI);
+						if(medicion.id_tipoMedicion==3){
+							//NO2
+							marker.addTo(gasNO2);
+							stringMedicion = "NO2: ";
+						}else if(medicion.id_tipoMedicion==4){
+							//SO
+							marker.addTo(gasSO);
+							stringMedicion = "SO: ";
+						}else if(medicion.id_tipoMedicion==5){
+							//O3
+							marker.addTo(gasO3);
+							stringMedicion = "O3: ";
+						}else if(medicion.id_tipoMedicion==6){
+							//CO2
+							marker.addTo(gasCO2);
+							stringMedicion = "CO2: ";
+						}
+						marker.bindPopup("<b>Medición</b><br>"+stringMedicion+medicion.medicion+" µg/m3");
+                    }
+})
+
+mcgLayerSupportGroup.checkIn([gasAQI,gasNO2, gasSO, gasO3, gasCO2]);
+
+
+var baseMaps = {
+	"AQI":gasAQI,
+    "NO2": gasNO2,
+	"SO": gasSO,
+	"O3": gasO3,
+	"CO2":gasCO2	
+};
+
+L.control.layers(baseMaps, null).addTo(map);
+map.addLayer(gasAQI);
+</script>
+</html>

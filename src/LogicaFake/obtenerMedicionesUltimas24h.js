@@ -29,7 +29,7 @@ function obtenerMedicionesUltimas24h(cb){
         }
     }
 
-    xmlhttp.open("GET", "http://192.168.204.31:5000/obtenerMedicionesUltimas24h", true)
+    xmlhttp.open("GET", "http://localhost:5000/obtenerMedicionesUltimas24h", true)
 	xmlhttp.setRequestHeader('Content-Type', 'application/json');
 	xmlhttp.setRequestHeader('Access-Control-Allow-Credentials', 'true');
 	

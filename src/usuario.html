@@ -102,7 +102,8 @@
                                     document.getElementById("inputCorreoEditar").value,
                                     document.getElementById("inputEdadEditar").value,
                                     document.getElementById("inputTelefonoEditar").value,
-                                    document.getElementById("inputContrasenyaNuevaEditar").value
+                                    document.getElementById("inputContrasenyaNuevaEditar").value,
+									sessionStorage.getItem("usuarioActivoId_Sensor")
                                 )
                                 //llamamos a la logica fake
                                 editarUsuario(function (err,res){
@@ -148,7 +149,8 @@
                         document.getElementById("inputCorreoEditar").value,
                         document.getElementById("inputEdadEditar").value,
                         document.getElementById("inputTelefonoEditar").value,
-                        sessionStorage.getItem("usuarioActivoPassword")
+                        sessionStorage.getItem("usuarioActivoPassword"),
+						sessionStorage.getItem("usuarioActivoId_Sensor")
                     )
                     //llamamos a la logica fake
                     editarUsuario(function (err,res){
@@ -198,7 +200,7 @@
         }
     </script>
     <script>
-        function crearJSONUsuario(id,nombre,apellidos,mail,fechaNacimiento,telefono,contrasenya){
+        function crearJSONUsuario(id,nombre,apellidos,mail,fechaNacimiento,telefono,contrasenya,id_sensor){
             let json = {
                 "id_usuario": id,
                 "nombre": nombre,
@@ -206,7 +208,8 @@
                 "mail":mail,
                 "fechaNacimiento": fechaNacimiento,
                 "telefono":telefono,
-                "password": contrasenya
+                "password": contrasenya,
+				"id_sensor":id_sensor
             };
             return json
         }
