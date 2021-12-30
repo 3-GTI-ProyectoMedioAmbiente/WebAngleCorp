@@ -28,6 +28,10 @@
     <!-- 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     -->
+    <script src="LogicaFake/comprobarAcceso.js"></script>
+    <script src="LogicaFake/editarUsuario.js"></script>
+    <script src="LogicaFake/publicarInfoPrivada.js"></script>
+    <script src="LogicaFake/obtenerMedicionesConPeriodoPorUsuario.js"></script>
     <script>
         function cargarUsuario(){
 
@@ -58,9 +62,74 @@
     </script>
     <script>
         function cerrarSesion(){
-            sessionStorage.clear()
-            window.location.href = "index.html";
+            obetenerMedicionesConPeriodoPorUsuario("dia",parseInt(sessionStorage.getItem("usuarioActivoId")),function (err,res){
+                //caso en el que haya ido todo bien
+                var arrayJSON = JSON.parse(res)//almaceno el resultado en un arrayJSON
+                arrayJSON=arrayJSON.mediciones;
+                prepararInfoPrivada(arrayJSON)
+
+            })
+
         }
+    </script>
+    <script>
+        function prepararInfoPrivada(mediciones){
+            //preparamos la distancia recorrida
+            let distanciaRecorrida = 0
+            if (mediciones.length === 0){//si la lista esta vacia
+                distanciaRecorrida = 0;
+            }else{
+                for (var i = 0;i<= mediciones.length-1;i++){
+                    if (i+1 >= mediciones.length){
+                        //no se hace nada ya que rebasa el indice
+                    }else{
+                        //calculamos la distancia en de las mediciones de la lista4
+                        var R = 6371; // km
+                        var dLat = toRad(mediciones[i+1].localizacion_lat)-toRad(mediciones[i].localizacion_lat);
+                        var dLon = toRad(mediciones[i+1].localizacion_lon)-toRad(mediciones[i].localizacion_lon);
+                        var a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                            Math.cos(toRad(mediciones[i].localizacion_lat)) * Math.cos(toRad(mediciones[i+1].localizacion_lat)) *
+                            Math.sin(dLon/2) * Math.sin(dLon/2);
+                        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                        var d = R * c;
+                        distanciaRecorrida = distanciaRecorrida +d
+                    }
+
+                }
+
+            }
+            //preparamos los minutos activos
+            var horaInicio = parseInt(sessionStorage.getItem("usuarioActivoTiempoInicio"))
+            var horaActual = Date.now();
+            var diferenciaDeHoras = horaActual-horaInicio
+            var minutos = (diferenciaDeHoras * 0.0000166667).toFixed(2);//redondeamos
+
+            //preparamos el json para enviar a la logica fake
+
+            let json = crearJSONinfo(sessionStorage.getItem("usuarioActivoId"),
+                sessionStorage.getItem("usuarioActivoId_Sensor"),
+                sessionStorage.getItem("usuarioActivoTelefono"),
+                distanciaRecorrida,
+                sessionStorage.getItem("usuarioActivoNombre"),
+                minutos)
+            publicarInfoPrivada(function (err,res){
+
+                    //redirigimos al login y borramos variable
+                    sessionStorage.clear()
+                    console.log("Todo ha ido bien")
+                    window.location.href = "index.html";
+
+            },json)//llamada a la logica fake
+
+
+
+
+        }
+    </script>
+    <script>
+        function toRad(Value) { /** Convierte valores numericos a radianes */ return Value * Math.PI / 180; }
+
+
     </script>
     <script>
 
@@ -214,8 +283,20 @@
             return json
         }
     </script>
-    <script src="LogicaFake/comprobarAcceso.js"></script>
-    <script src="LogicaFake/editarUsuario.js"></script>
+    <script>
+        function crearJSONinfo(idu,ids,telefono,distancia,nombre,minutos){
+            let json = {
+                "id_usuario" : idu,
+                "id_sensor": ids,
+                "telefono": telefono,
+                "distancia_recorrida": distancia,
+                "nombre": nombre,
+                "minutos_activo":minutos,
+            };
+            return json
+        }
+    </script>
+
 </head>
 <body class="bodyUsuario" onload="cargarUsuario()">
     <header class="header">
@@ -329,7 +410,7 @@
                 <div class="containerUsuarioInferior">
                    <div>
                         <a href="#popupEditar">Editar Mi Perfil</a>
-                        <a href="login.html" onclick="cerrarSesion()" id="textoCerrarSesionUsuario">Cerrar Sesión</a>
+                        <a  onclick="cerrarSesion()" id="textoCerrarSesionUsuario">Cerrar Sesión</a>
                     </div>
                     <a href="index.html#quieroMiSensor"> <button class="btnObtenerNodoUsuario">Obtener Mi Nodo</button></a>
                    

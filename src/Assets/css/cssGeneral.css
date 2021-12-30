@@ -715,6 +715,7 @@ nav.navbar ul.navbar-nav li.nav-item a.nav-link:hover {
 }
 #cerrarSesionA{
     color: darkred;
+    cursor: pointer;
 }
 .btnObtenerNodoUsuario{
     border-radius: 20px;

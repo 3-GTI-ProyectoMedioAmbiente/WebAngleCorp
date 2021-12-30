@@ -50,6 +50,11 @@
                         //Almaceno los datos del usuario en la sesión
 
                         settearUsuarioActivo(usuarioJSON)
+
+                        //almacenamos la hora en la que inicia sesion el usuario
+                        sessionStorage.setItem("usuarioActivoTiempoInicio",Date.now().toString())
+
+
                         //Redirecciono a la pagina de usuario
                         window.location.href = "usuario.html";
 
