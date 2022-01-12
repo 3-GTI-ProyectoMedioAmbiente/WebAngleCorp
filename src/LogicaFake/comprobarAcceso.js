@@ -15,16 +15,12 @@ function comprobarAcceso(){
         }else{
             window.location.href = "usuario.html";
         }
-
 }
 
 function comprobarAccesoAdmin(){
 	
-	if (sessionStorage.getItem("usuarioActivoMail") == "admin@gmail.com"){
-            window.location.href = "mapaSelectorGases.html";
-        }else{
-            window.location.href = "usuario.html";
+	if (sessionStorage.getItem("usuarioActivoMail") != "admin@gmail.com"){
+            window.location.href = "index.html";
         }
-	
 }
 	
