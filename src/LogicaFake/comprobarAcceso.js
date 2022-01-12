@@ -17,3 +17,14 @@ function comprobarAcceso(){
         }
 
 }
+
+function comprobarAccesoAdmin(){
+	
+	if (sessionStorage.getItem("usuarioActivoMail") == "admin@gmail.com"){
+            window.location.href = "mapaSelectorGases.html";
+        }else{
+            window.location.href = "usuario.html";
+        }
+	
+}
+	

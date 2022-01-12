@@ -34,8 +34,9 @@
     <script src="LogicaFake/obtenerMedicionesConPeriodoPorUsuario.js"></script>
     <script>
         function cargarUsuario(){
-
-
+			
+		
+			
             //console.log(sessionStorage.getItem("usuarioActivoNombre"))
             //console.log(document.getElementById("datoUsuarioNombre").innerText)
             console.log(sessionStorage.getItem("usuarioActivoFechaNacimiento"))
@@ -57,6 +58,20 @@
             document.getElementById("inputTelefonoEditar").value = sessionStorage.getItem("usuarioActivoTelefono")
 
             //console.log(document.getElementById("inputEdadEditar").value)
+			
+			//cambiamos el boton si es admin
+			if(sessionStorage.getItem("usuarioActivoMail") == "admin@gmail.com"){
+				var botonAdmin = document.getElementById("botonObtenerNodo");
+				botonAdmin.innerHTML = 'Histórico de Mapas';
+				var enlaceAdmin = document.getElementById("enlaceObtenerNodo");
+				enlaceAdmin.href = "mapaSelectorGases.html";
+			}
+		
+			
+				
+			
+			 
+		
         }
 
     </script>
@@ -412,7 +427,7 @@
                         <a href="#popupEditar">Editar Mi Perfil</a>
                         <a  onclick="cerrarSesion()" id="textoCerrarSesionUsuario">Cerrar Sesión</a>
                     </div>
-                    <a href="index.html#quieroMiSensor"> <button class="btnObtenerNodoUsuario">Obtener Mi Nodo</button></a>
+                    <a href="index.html#quieroMiSensor" id="enlaceObtenerNodo"> <button id="botonObtenerNodo" class="btnObtenerNodoUsuario">Obtener Mi Nodo</button></a>
                    
                 </div>
                 
@@ -447,6 +462,7 @@
 
         <div id="popupBodyEditar">
             <div class="cabeceraPopUpEditar">
+				
                 <div>
                     <img src="Assets/images/lapiz.png" alt="Icono lapiz">
                     <h2>Editar Usuario</h2>
